@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 500">
+ <linearGradient id="gr-rainbow-stripes" x1="0" y1="0" x2="100%" y2="0%"> 
+    <stop offset="0%" stop-color="crimson" /><stop offset="10%" stop-color="purple" />
+    <stop offset="10%" stop-color="red" /><stop offset="20%" stop-color="crimson" />
+    <stop offset="20%" stop-color="orangered" /><stop offset="30%" stop-color="red" />
+    <stop offset="30%" stop-color="orange" /><stop offset="40%" stop-color="orangered" />
+    <stop offset="40%" stop-color="gold" /><stop offset="50%" stop-color="orange" />
+    <stop offset="50%" stop-color="yellowgreen" /><stop offset="60%" stop-color="gold" />
+    <stop offset="60%" stop-color="green" /><stop offset="70%" stop-color="yellowgreen" />
+    <stop offset="70%" stop-color="steelblue" /><stop offset="80%" stop-color="skyblue" />
+    <stop offset="80%" stop-color="mediumpurple" /><stop offset="90%" stop-color="steelblue" />
+    <stop offset="90%" stop-color="purple" /><stop offset="100%" stop-color="mediumpurple" />
+  </linearGradient>
+
+  <linearGradient id="gr-hot-cold" x1="0" y1="0" x2="40" y2="40"
+                    gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop stop-color="#F2385A" offset="0"/>
+      <stop stop-color="#F2385A" offset="20%"/>
+      <stop stop-color="#F5A503" offset="20%"/>
+      <stop stop-color="#F5A503" offset="40%"/>
+      <stop stop-color="#E9F1DF" offset="40%"/>  
+      <stop stop-color="#E9F1DF" offset="60%"/>  
+      <stop stop-color="#4AD9D9" offset="60%"/>  
+      <stop stop-color="#4AD9D9" offset="80%"/>  
+      <stop stop-color="#36B1BF" offset="80%"/>  
+      <stop stop-color="#36B1BF" offset="100%"/>  
+  </linearGradient>
+
+  <linearGradient id="gr-hot-cold-soft" x1="0" y1="0" x2="100%" y2="50%">
+      <stop stop-color="hsl(45,100%,65%)" offset="0"/>
+      <stop stop-color="hsl(320,100%,65%)" offset="50%"/>
+      <stop stop-color="hsl(200,100%,60%)" offset="100%"/>  
+  </linearGradient>
+
+  <linearGradient id="gr-gray-transp" x1="0" y1="0" x2="0" y2="100%">
+      <stop stop-color="rgba(0,0,0,.2)" class="color-1"/>
+      <stop stop-color="rgba(0,0,0,.02)" offset="90" class="color-2"/>
+  </linearGradient>
+
+  <!--  -->
+
+  <pattern id="pt-rainbow-stripes" width="200" height="200"
+           patternUnits="userSpaceOnUse" viewbox="0 0 200 200">
+    <rect width="200" height="200" fill="url(#gr-rainbow-stripes)"/>
+  </pattern>
+
+  <pattern id="pt-wood" width="300" height="300"
+             patternUnits="userSpaceOnUse">
+      <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300">
+  </pattern>
+
+  <pattern id="pt-flower" patternunits="userSpaceOnUse" width="199" height="300" viewbox="0 0 199 300">
+          <image xlink:href="./assets/img/parts/flower-m.jpg" width="199" height="300" />
+  </pattern>
+  <!--  -->
+  <pattern id="pt-text" patternunits="userSpaceOnUse" width="450" height="100">
+    <text x="0" y="0"> 
+      <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies. 
+      </tspan>
+      <tspan x="0" y="2em">Nulla ligula elit, placerat a sapien vel, eleifend tincidunt nibh. Suspendisse porta fermentum dictum. Cras eget
+      </tspan>
+      <tspan x="0" y="3em">Maecenas tempus elit quis sapien tempus, sit amet viverra neque mattis. Quisque a tincidunt mi.
+      </tspan>
+      <tspan x="0" y="4em">Proin at justo eu ipsum posuere dignissim vel quis eros. Etiam at libero commodo, varius justo quis, interdum erat.
+      </tspan>
+      <tspan x="0" y="5em">Fusce viverra mollis est, nec euismod ante mattis ut. Aenean eu mauris viverra enim vulputate bibendum. 
+      </tspan>
+      <tspan x="0" y="6em">Integer velit metus, cursus et commodo sit amet, gravida vitae purus. Sed scelerisque at odio non condimentum. 
+      </tspan>
+      <tspan x="0" y="7em">Sed neque lacus, rhoncus vitae sem ut, pharetra vestibulum elit. 
+      </tspan>
+      <tspan x="0" y="8em">Cras ultricies aliquam dolor quis ultrices. Cras eget mauris tincidunt, aliquam erat quis, faucibus augue.
+      </tspan>
+    </text>
+  </pattern>
+
+</svg>  

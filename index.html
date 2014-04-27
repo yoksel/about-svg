@@ -1,0 +1,1211 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Позвольте представить: SVG</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=792, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="node_modules/shower-bright/styles/screen.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="list">
+
+  <div class="hidden-svg-defs">
+    <div id="svg-filters"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 900 500">
+    <defs>
+        <filter id="fl-blur" filterUnits="userSpaceOnUse" x="0" y="0" 
+              width="300" height="300">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+        </filter>
+        <!--        -->
+        <filter id="fl-shadow" filterUnits="userSpaceOnUse" x="0" y="0"
+              width="900" height="900">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feOffset in="blur" dx="0" dy="4" result="offsetBlr" />
+        <feFlood flood-color="rgba(0,0,0,.8)"/>
+        <feComposite operator="in" in2="offsetBlr" result="colBlur"/>
+        <feMerge>
+          <feMergeNode in="colBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <!--        -->
+      <filter id="fl-striped-shadow">
+        <!--<feGaussianBlur stdDeviation="0" in="SourceAlpha" />-->
+        <feOffset dx="3" dy="3" in="SourceGraphic" result="offset"/>
+        <feFlood flood-color="#F2385A"/>
+        <feComposite operator="in" in2="offset" result="res"/>
+        
+        <feOffset dx="6" dy="6" in="SourceGraphic" result="offset2"/>
+        <feFlood flood-color="#F5A503"/>
+        <feComposite operator="in" in2="offset2" result="res2"/>
+        
+        <feOffset dx="9" dy="9" in="SourceGraphic" result="offset3"/>
+        <feFlood flood-color="#E9F1DF"/>
+        <feComposite operator="in" in2="offset3" result="res3"/>
+        
+        <feOffset dx="12" dy="12" in="SourceGraphic" result="offset4"/>
+        <feFlood flood-color="#4AD9D9"/>
+        <feComposite operator="in" in2="offset4" result="res4"/>
+        
+        <feOffset dx="15" dy="15" in="SourceGraphic" result="offset5"/>
+        <feFlood flood-color="#36B1BF"/>
+        <feComposite operator="in" in2="offset5" result="res5"/>
+
+        <feMerge>
+          <feMergeNode in="res5"/>
+          <feMergeNode in="res4"/>
+          <feMergeNode in="res3"/>
+          <feMergeNode in="res2"/>
+          <feMergeNode in="res"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Shadow offset -->
+      <filter id='fl-inner-shadow'>
+        <feOffset dx='0' dy='0'/>
+        <feGaussianBlur stdDeviation='4' result='offset-blur'/>
+        <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
+        <feFlood flood-color='#000' flood-opacity='.9' result='color'/>
+        <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
+        <feComposite operator='over' in='shadow' in2='SourceGraphic'/>
+      </filter>
+
+    </defs>
+</svg>    ;</div>
+    <div id="svg-fills"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 500">
+ <linearGradient id="gr-rainbow-stripes" x1="0" y1="0" x2="100%" y2="0%"> 
+    <stop offset="0%" stop-color="crimson" /><stop offset="10%" stop-color="purple" />
+    <stop offset="10%" stop-color="red" /><stop offset="20%" stop-color="crimson" />
+    <stop offset="20%" stop-color="orangered" /><stop offset="30%" stop-color="red" />
+    <stop offset="30%" stop-color="orange" /><stop offset="40%" stop-color="orangered" />
+    <stop offset="40%" stop-color="gold" /><stop offset="50%" stop-color="orange" />
+    <stop offset="50%" stop-color="yellowgreen" /><stop offset="60%" stop-color="gold" />
+    <stop offset="60%" stop-color="green" /><stop offset="70%" stop-color="yellowgreen" />
+    <stop offset="70%" stop-color="steelblue" /><stop offset="80%" stop-color="skyblue" />
+    <stop offset="80%" stop-color="mediumpurple" /><stop offset="90%" stop-color="steelblue" />
+    <stop offset="90%" stop-color="purple" /><stop offset="100%" stop-color="mediumpurple" />
+  </linearGradient>
+
+  <linearGradient id="gr-hot-cold" x1="0" y1="0" x2="40" y2="40"
+                    gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop stop-color="#F2385A" offset="0"/>
+      <stop stop-color="#F2385A" offset="20%"/>
+      <stop stop-color="#F5A503" offset="20%"/>
+      <stop stop-color="#F5A503" offset="40%"/>
+      <stop stop-color="#E9F1DF" offset="40%"/>  
+      <stop stop-color="#E9F1DF" offset="60%"/>  
+      <stop stop-color="#4AD9D9" offset="60%"/>  
+      <stop stop-color="#4AD9D9" offset="80%"/>  
+      <stop stop-color="#36B1BF" offset="80%"/>  
+      <stop stop-color="#36B1BF" offset="100%"/>  
+  </linearGradient>
+
+  <linearGradient id="gr-hot-cold-soft" x1="0" y1="0" x2="100%" y2="50%">
+      <stop stop-color="hsl(45,100%,65%)" offset="0"/>
+      <stop stop-color="hsl(320,100%,65%)" offset="50%"/>
+      <stop stop-color="hsl(200,100%,60%)" offset="100%"/>  
+  </linearGradient>
+
+  <linearGradient id="gr-gray-transp" x1="0" y1="0" x2="0" y2="100%">
+      <stop stop-color="rgba(0,0,0,.2)" class="color-1"/>
+      <stop stop-color="rgba(0,0,0,.02)" offset="90" class="color-2"/>
+  </linearGradient>
+
+  <!--  -->
+
+  <pattern id="pt-rainbow-stripes" width="200" height="200"
+           patternUnits="userSpaceOnUse" viewbox="0 0 200 200">
+    <rect width="200" height="200" fill="url(#gr-rainbow-stripes)"/>
+  </pattern>
+
+  <pattern id="pt-wood" width="300" height="300"
+             patternUnits="userSpaceOnUse">
+      <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300">
+  </pattern>
+
+  <pattern id="pt-flower" patternunits="userSpaceOnUse" width="199" height="300" viewbox="0 0 199 300">
+          <image xlink:href="./assets/img/parts/flower-m.jpg" width="199" height="300" />
+  </pattern>
+  <!--  -->
+  <pattern id="pt-text" patternunits="userSpaceOnUse" width="450" height="100">
+    <text x="0" y="0"> 
+      <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies. 
+      </tspan>
+      <tspan x="0" y="2em">Nulla ligula elit, placerat a sapien vel, eleifend tincidunt nibh. Suspendisse porta fermentum dictum. Cras eget
+      </tspan>
+      <tspan x="0" y="3em">Maecenas tempus elit quis sapien tempus, sit amet viverra neque mattis. Quisque a tincidunt mi.
+      </tspan>
+      <tspan x="0" y="4em">Proin at justo eu ipsum posuere dignissim vel quis eros. Etiam at libero commodo, varius justo quis, interdum erat.
+      </tspan>
+      <tspan x="0" y="5em">Fusce viverra mollis est, nec euismod ante mattis ut. Aenean eu mauris viverra enim vulputate bibendum. 
+      </tspan>
+      <tspan x="0" y="6em">Integer velit metus, cursus et commodo sit amet, gravida vitae purus. Sed scelerisque at odio non condimentum. 
+      </tspan>
+      <tspan x="0" y="7em">Sed neque lacus, rhoncus vitae sem ut, pharetra vestibulum elit. 
+      </tspan>
+      <tspan x="0" y="8em">Cras ultricies aliquam dolor quis ultrices. Cras eget mauris tincidunt, aliquam erat quis, faucibus augue.
+      </tspan>
+    </text>
+  </pattern>
+
+</svg>  ;</div>
+    <div id="svg-masks"><svg>
+      <defs>
+        <!-- Paths -->
+        <clippath id="clipping-star">
+          <polygon id="Star-1" points="98.4999978 153.75 38.2520165 185.424245 49.7583542 118.337123 1.01670635 70.8257603 68.3760155 61.037872 98.5000012 1.1379786e-14 128.624005 61.0378871 195.98331 70.8258091 147.241642 118.337136 158.747982 185.424247" />
+        </clippath>
+        <!--  -->
+        <clippath id="clipping-text">
+          <text x="0" y=".88em">Text</text>
+        </clippath>
+        <!-- Gradients -->
+        <lineargradient id="gradient" x1="0" y1="0" x2="110%" y2="0%">
+          <stop stop-color="#fff" offset="0" /><stop stop-color="#fff" offset="10%" />
+          <stop stop-color="#AAA" offset="10%" /><stop stop-color="#AAA" offset="20%" />
+          <stop stop-color="#777" offset="20%" /><stop stop-color="#777" offset="30%" />
+          <stop stop-color="#333" offset="30%" /><stop stop-color="#333" offset="40%" />
+          <stop stop-color="#000" offset="40%" /><stop stop-color="#000" offset="50%" />
+          <stop stop-color="#fff" offset="50%" /><stop stop-color="#fff" offset="60%" />
+          <stop stop-color="#AAA" offset="60%" /><stop stop-color="#AAA" offset="70%" />
+          <stop stop-color="#777" offset="70%" /><stop stop-color="#777" offset="80%" />
+          <stop stop-color="#333" offset="80%" /><stop stop-color="#333" offset="90%" />
+          <stop stop-color="#000" offset="90%" /><stop stop-color="#000" offset="100%" />
+        </lineargradient>
+        <!--  -->
+        <radialgradient id="r-gradient" cy="52%" fy="5.5%">
+          <stop stop-color="#FFF" offset="50%" />
+          <stop stop-color="#000" offset="100%" />
+        </radialgradient>
+        <!--  -->
+        <lineargradient id="ymc-gradient" x1="0" y1="0" x2="100%" y2="0%">
+          <stop stop-color="hsl(45,100%,65%)" offset="0" />
+          <stop stop-color="hsl(45,100%,65%)" offset="32%" />
+          <stop stop-color="hsl(320,100%,65%)" offset="32%" />
+          <stop stop-color="hsl(320,100%,65%)" offset="67%" />
+          <stop stop-color="hsl(200,100%,60%)" offset="67%" />
+          <stop stop-color="hsl(200,100%,60%)" offset="100%" />
+        </lineargradient>
+        <!-- Masks -->
+        <mask id="masking" maskunits="objectBoundingBox" maskcontentunits="objectBoundingBox">
+          <rect y="0" width="1" height="1" fill="url(#gradient)" />
+          <circle cx=".5" cy=".5" r=".42" fill="black" />
+          <circle cx="0" cy=".5" r=".32" fill="black" />
+          <circle cx="1" cy=".5" r=".32" fill="black" />
+          <circle cx="0" cy=".5" r=".3" fill="gray" />
+          <circle cx=".5" cy=".5" r=".4" fill="gray" />
+          <circle cx="1" cy=".5" r=".3" fill="gray" />
+          <circle cx="0" cy=".5" r=".25" fill="white" />
+          <circle cx=".5" cy=".5" r=".35" fill="white" />
+          <circle cx="1" cy=".5" r=".25" fill="white" />
+        </mask>
+        <!--  -->
+        <mask id="masking-soft" maskunits="objectBoundingBox" maskcontentunits="objectBoundingBox">
+          <rect y="0" width="1" height="1" fill="url(#r-gradient)" />
+        </mask>
+        <!--  -->
+        <mask id="masking-lum" maskunits="objectBoundingBox" x="0" y="0">
+          <image xlink:href="./assets/img/parts/flower-m.jpg" width="200" height="300" />
+        </mask>
+        <!-- Patterns -->
+        <pattern id="pattern" patternunits="userSpaceOnUse" width="199" height="300" viewbox="0 0 199 300">
+          <image xlink:href="./assets/img/parts/flower-m.jpg" width="199" height="300" />
+        </pattern>
+        <!--  -->
+        <pattern id="pattern-text" patternunits="userSpaceOnUse" width="450" height="95">
+          <text x="0" y="0"> 
+            <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies. 
+            </tspan>
+            <tspan x="0" y="2em">Nulla ligula elit, placerat a sapien vel, eleifend tincidunt nibh. Suspendisse porta fermentum dictum. Cras eget
+            </tspan>
+            <tspan x="0" y="3em">Maecenas tempus elit quis sapien tempus, sit amet viverra neque mattis. Quisque a tincidunt mi.
+            </tspan>
+            <tspan x="0" y="4em">Proin at justo eu ipsum posuere dignissim vel quis eros. Etiam at libero commodo, varius justo quis, interdum erat.
+            </tspan>
+            <tspan x="0" y="5em">Fusce viverra mollis est, nec euismod ante mattis ut. Aenean eu mauris viverra enim vulputate bibendum. 
+            </tspan>
+            <tspan x="0" y="6em">Integer velit metus, cursus et commodo sit amet, gravida vitae purus. Sed scelerisque at odio non condimentum. 
+            </tspan>
+            <tspan x="0" y="7em">Sed neque lacus, rhoncus vitae sem ut, pharetra vestibulum elit. 
+            </tspan>
+            <tspan x="0" y="8em">Cras ultricies aliquam dolor quis ultrices. Cras eget mauris tincidunt, aliquam erat quis, faucibus augue.
+            </tspan>
+          </text>
+        </pattern> 
+
+   </defs>
+</svg>;</div>
+    <div id="svg-images"><svg><defs> <path id="bubble" d="M50 6.25c27.614 0 50 18.188 50 40.625 0 22.437-22.386 40.625-50 40.625-2.652 0-5.255-0.169-7.795-0.493-10.74 10.74-23.56 12.666-35.955 12.949v-2.629c6.693-3.279 12.5-9.252 12.5-16.078 0-0.953-0.074-1.888-0.211-2.802-11.308-7.448-18.539-18.824-18.539-31.573 0-22.437 22.386-40.625 50-40.625z"></path> <g id="bubbles">null</g> <path id="camera" d="M29.688 59.375c0 11.218 9.094 20.313 20.313 20.313s20.313-9.094 20.313-20.313-9.094-20.313-20.313-20.313-20.313 9.094-20.313 20.313zM93.75 25h-21.875c-1.563-6.25-3.125-12.5-9.375-12.5h-25c-6.25 0-7.813 6.25-9.375 12.5h-21.875c-3.438 0-6.25 2.813-6.25 6.25v56.25c0 3.438 2.813 6.25 6.25 6.25h87.5c3.438 0 6.25-2.813 6.25-6.25v-56.25c0-3.438-2.813-6.25-6.25-6.25zM50 87.109c-15.317 0-27.734-12.417-27.734-27.734 0-15.317 12.417-27.734 27.734-27.734 15.318 0 27.734 12.417 27.734 27.734 0 15.318-12.417 27.734-27.734 27.734zM93.75 43.75h-12.5v-6.25h12.5v6.25z"></path>  <!--  viewbox="0 0 365 185" --> <g id="car"> <rect x="70" y="10" width="220" height="130" fill="transparent" rx="150" stroke="crimson" stroke-width="10"></rect> <rect x="10" y="70" width="340" height="80" fill="crimson" rx="30"></rect> <g stroke="crimson" stroke-width="10"> <line x1="145" y1="10" x2="145" y2="80"></line> <line x1="215" y1="10" x2="215" y2="80"></line> </g> <g fill="#999"> <rect x="0" y="110" width="40" height="20" rx="10"></rect> <rect x="325" y="110" width="40" height="20" rx="10"></rect> </g> <g> <circle r="40px" fill="#222" stroke="white" stroke-width="7" cx="90" cy="140"></circle> <circle r="15px" fill="#555" cx="90" cy="140"></circle> </g> <g> <circle r="40px" fill="#222" stroke="white" stroke-width="7" cx="270" cy="140"></circle> <circle r="15px" fill="#555" cx="270" cy="140"></circle> </g> <g> <circle r="15px" fill="gold" cx="340" cy="90"></circle> <circle r="10px" fill="orange" cx="15" cy="90"></circle> </g> </g>  <path id="cog" d="M100 59.384v-18.768l-14.333-2.389c-0.582-1.771-1.291-3.483-2.119-5.127l8.443-11.82-13.271-13.271-11.799 8.428c-1.651-0.835-3.373-1.552-5.153-2.139l-2.383-14.298h-18.768l-2.383 14.298c-1.78 0.587-3.502 1.304-5.153 2.139l-11.8-8.428-13.271 13.271 8.443 11.82c-0.827 1.644-1.537 3.356-2.118 5.127l-14.333 2.389v18.768l14.367 2.395c0.582 1.755 1.29 3.452 2.113 5.081l-8.471 11.86 13.271 13.271 11.88-8.486c1.621 0.815 3.31 1.516 5.055 2.093l2.4 14.402h18.768l2.4-14.402c1.746-0.577 3.434-1.278 5.055-2.093l11.88 8.486 13.271-13.271-8.471-11.86c0.823-1.629 1.531-3.326 2.113-5.081l14.367-2.394zM50 62.5c-6.904 0-12.5-5.596-12.5-12.5 0-6.904 5.596-12.5 12.5-12.5 6.904 0 12.5 5.596 12.5 12.5 0 6.904-5.596 12.5-12.5 12.5z"></path>  <path id="heart" d="M100 34.976c0 8.434-3.635 16.019-9.423 21.274h0.048l-31.25 31.25c-3.125 3.125-6.25 6.25-9.375 6.25s-6.25-3.125-9.375-6.25l-31.202-31.25c-5.788-5.255-9.423-12.84-9.423-21.274 0-15.865 12.861-28.726 28.726-28.726 8.434 0 16.019 3.635 21.274 9.423 5.255-5.788 12.84-9.423 21.274-9.423 15.865 0 28.726 12.861 28.726 28.726z"></path>  <path id="home" d="M100 59.375l-18.75-18.75v-28.125h-12.5v15.625l-18.75-18.75-50 50v3.125h12.5v31.25h31.25v-18.75h12.5v18.75h31.25v-31.25h12.5z"></path>  <path d="M21 4.5h-18v15h18v-15zM24 1.5v0 21h-24v-21h24zM19.5 18h-15v-3l4.5-7.5 6.164 7.5 4.336-3v1.5zM15 8.25c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25c0 1.243-1.007 2.25-2.25 2.25-1.243 0-2.25-1.007-2.25-2.25z" fill="currentColor" id="image"></path>  <path d="M50 500c-27.614 0-50-22.386-50-50v-400c0-27.614 22.386-50 50-50h400c27.615 0 50 22.386 50 50v219.224l-84.141-84.141-17.678 17.678 101.818 101.818v35.355l-119.496-119.496-17.678 17.678 137.174 137.174v35.397l-154.851-154.851-17.677 17.677 172.528 172.528v3.961c0 27.614-22.385 50-50 50h-109.618c4.128-39.908-9.142-81.331-39.788-111.978l-61.52-61.518-61.517-61.518c-24.497-24.498-24.568-64.143-.161-88.55 24.407-24.407 64.053-24.335 88.549.161l8.484 8.484v106.067l159.1-159.1h-106.067l-8.484-8.484c-53.893-53.893-141.111-54.051-194.808-.354s-53.539 140.916.354 194.809l61.518 61.518 61.519 61.518c16.006 16.006 21.584 38.48 16.719 58.945zm0 0" fill="#4B86C2" id="logo"></path>  <text x="0" y="95%" id="text-svg">SVG</text> </defs></svg>;</div>
+  </div>
+
+  <header class="caption">
+    <h1>Позвольте представить: SVG</h1>
+    <p>@yoksel</p>
+  </header>
+
+  <section class="slide bg--gray-wood" id="Cover"><div>
+    <h2>Позвольте представить:</h2>
+    <svg id="cover-text">
+          <text x="0" y="93%" class="cover-text__stroke">SVG</text>
+          <text x="0" y="93%" class="cover-text__fill">SVG</text>
+      </svg>
+      <!-- 
+      о чем это
+      в конце будет ссылка на демо
+       -->
+  </div></section>
+
+  <section class="slide"><div>
+      <h2>Что такое SVG?</h2>
+      загрузить ШРИФТ!!!
+      <p><b>Scalable Vector Graphics</b> - формат векторных изображений, основанный на XML.</p>
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+      <h2 class="free-fly">Преимущества формата</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <ul>
+      <li>Масштабируется</li>
+      <li>Четкий на ретине
+        <a href="assets/img/preview/retina.jpg" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a></li>
+      <li>Человекопонятный код</li>
+      <li>Можно написать руками</li> <!-- хорошо для экспериментов -->
+      <li>Исходник</li>
+      <li>Переиспользуемые компоненты</li>
+      <li>Внутри - CSS и JavaScript</li>
+    </ul>
+
+      <!-- MQ,
+        машина с клоунами 
+        смартфоны -->
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Масштабируемость</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <!-- begin wrapper--icons-16-64 -->
+    <div class="wrapper wrapper--icons-16-64">
+      <ul class="icons icons-size--16" data-size="16">
+        <li class="icon icon--heart"></li>
+        <li class="icon icon--cloud"></li>
+        <li class="icon icon--star"></li>
+        <li class="icon icon--airplane"></li>
+        <li class="icon icon--speaker"></li>
+        <li class="icon icon--flask"></li>
+      </ul>
+
+      <ul class="icons icons-size--32" data-size="32">
+        <li class="icon icon--heart"></li>
+        <li class="icon icon--cloud"></li>
+        <li class="icon icon--star"></li>
+        <li class="icon icon--airplane"></li>
+        <li class="icon icon--speaker"></li>
+        <li class="icon icon--flask"></li>
+      </ul>
+
+      <ul class="icons icons-size--48" data-size="48">
+        <li class="icon icon--heart"></li>
+        <li class="icon icon--cloud"></li>
+        <li class="icon icon--star"></li>
+        <li class="icon icon--airplane"></li>
+        <li class="icon icon--speaker"></li>
+        <li class="icon icon--flask"></li>
+      </ul>
+
+      <ul class="icons icons-size--64" data-size="64">
+        <li class="icon icon--heart"></li>
+        <li class="icon icon--cloud"></li>
+        <li class="icon icon--star"></li>
+        <li class="icon icon--airplane"></li>
+        <li class="icon icon--speaker"></li>
+        <li class="icon icon--flask"></li>
+      </ul>
+     </div> 
+     <!-- end wrapper--icons-16-64 -->
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Media Queries</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <div class="preview--cat">
+      <img src="./assets/img/preview/cat-whole.png" alt="Весь кот">
+    </div>  
+  </div></section>
+
+  <section class="slide"><div>
+    <div class="preview--cat">
+      <img src="./assets/img/preview/cat-forepaws.png" alt="Передние лапы">
+    </div>  
+  </div></section>
+
+  <section class="slide"><div>
+    <div class="preview--cat">
+      <img src="./assets/img/preview/cat-head.png" alt="Голова кота">
+    </div>  
+  </div></section>
+
+  <section class="slide"><div>
+    <div class="preview--cat">
+      <img src="./assets/img/preview/cat-smile.png" alt="Улыбка">
+    </div>  
+  </div></section>
+
+  <section class="slide"><div>
+    <!-- (mq в svg)
+      скрины демо с котом
+      http://codepen.io/yoksel/full/JIkGd -->
+      
+  </div></section>
+
+
+  <section class="slide bg--gray-wood"><div>
+      <h2 class="free-fly">Пишем SVG</h2>
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>&lt;rect></h2>
+        <div class="demo demo--rect js-demo">
+          <div class="demo__content">
+            <textarea class="demo__textfield demo__code"><svg width="230" height="140">
+            <rect x="5" y="5" width="220" height="130" 
+                  fill="skyblue" stroke="steelblue" stroke-width="5" />
+          </svg>
+                </textarea>
+        </div></div>
+
+    <div class="demo demo--rect js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg width="230" height="140">
+      <rect x="5" y="5" width="220" height="130" rx="20" 
+            fill="yellowgreen" stroke="green" stroke-width="5" />
+  </svg>
+          </textarea>
+        </div>
+      </div>
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>&lt;circle>, &lt;ellipse></h2>
+        <div class="demo demo--circle js-demo">
+          <div class="demo__content">
+          <textarea class="demo__textfield demo__code"><svg width="140" height="140">
+         <circle r="65" cx="70" cy="70" 
+                 fill="orangered" stroke="crimson" stroke-width="5" />
+    </svg>
+          </textarea>
+        </div>
+    </div>
+
+    <div class="demo demo--ellipse js-demo">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="230" height="140">
+     <ellipse rx="110" ry="60" cx="115" cy="70" 
+              fill="gold" stroke="orange" stroke-width="5" />
+</svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>&lt;polygon></h2>
+        <div class="demo js-demo">
+          <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="230" height="140">
+    <polygon points="5,135 115,5 225,135" 
+             fill="violet" stroke="purple" stroke-width="5" />
+</svg>
+      </textarea>
+    </div></div>
+
+    <div class="demo js-demo">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="140" height="130">
+    <polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41"        
+             fill="turquoise" stroke="lightseagreen" stroke-width="5" />
+</svg>
+      </textarea>
+    </div></div>
+
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>&lt;line>, &lt;polyline></h2>
+        <div class="demo js-demo">
+          <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="230" height="140">
+    <line x1="220" y1="10" x2="20" y2="130" 
+           stroke="violet" stroke-width="5" />
+</svg>
+      </textarea>
+    </div>
+    </div>
+
+    <div class="demo js-demo">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="260" height="140">
+    <polyline points="5,135 30,5 55,135 80,5, 105,135 130,5, 155,135 180,5, 205,135 230,5, 255,135" 
+                fill="none" stroke="orangered" stroke-width="5" />
+</svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>&lt;Path></h2>
+        <div class="demo js-demo">
+          <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="200" height="140">
+  <path stroke="orange" stroke-width="3" fill="gold"
+        d="M 100,10 L 180,130
+           L 20,130 z"/>
+</svg>
+      </textarea>
+    </div></div>
+
+    <div class="demo js-demo">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg width="200" height="140">
+  <path stroke="purple" stroke-width="3" fill="violet" 
+      d="M 20 10 
+         A20,31 0 0,0 170,10"></path>
+</svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+      <h2 class="free-fly">Обводки и заливки</h2>
+  </div></section>
+  
+  <section class="slide"><div>
+          <h2>fill</h2>
+          <ul class="list--columns">
+            <li><b>fill</b>
+              <svg width="200" height="200">
+      <rect width="150" height="150" x="0" y="0" 
+              fill="skyblue"/>
+      <rect width="150" height="150" x="50" y="50" 
+              fill="url(#gr-hot-cold-soft)"/>
+</svg></li>
+            <li><b>fill-rule !код!!</b>
+              <svg width="200" height="200">
+      <path stroke="orange" stroke-width="5" 
+                fill="gold" fill-rule="evenodd" 
+                d="M 100,20 L 50,180 180,80 20,80 150,180 z"></path>
+</svg></li>
+          <li><b>fill-opacity</b>
+            <svg width="200" height="200">
+    <rect width="100" height="100" x="20" y="20" 
+              fill="crimson" fill-opacity=".5"/>
+    <rect width="100" height="100" x="50" y="50" 
+              fill="hsl(50, 100%, 50%)" fill-opacity=".4"/>
+    <rect width="100" height="100" x="80" y="80" 
+              fill="url(#pt-wood)" fill-opacity=".5"/>
+</svg></li>
+          </ul>
+  </div></section>
+
+  <section class="slide"><div>
+      <h2>Gradient</h2>
+      <p>код, пример</p>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>stroke</h2>
+    
+    <ul class="list--columns">
+      <li><b>stroke-width</b>
+      <svg width="200" height="200"><rect width="160" height="160" x="20" y="20" fill="none" stroke="yellowgreen" stroke-width="10%"></rect><rect width="100" height="100" x="50" y="50" fill="none" stroke="gold" stroke-width="5"></rect></svg></li>
+      <li><b>stroke-linecap</b>
+      <svg width="200" height="205"><symbol id="s-path-guide"><circle r="3" cx="30" cy="15"></circle><circle r="3" cx="170" cy="15"></circle><path d="M 30 15 170 15" stroke-width="2"></path></symbol><symbol id="s-path"><path d="M 30 15 170 15" stroke-width="30"></path></symbol><use xlink:href="#s-path" stroke="orangered" y="20" stroke-linecap="butt"></use><use xlink:href="#s-path" stroke="olivedrab" y="85" stroke-linecap="round"></use><use xlink:href="#s-path" stroke="steelblue" y="150" stroke-linecap="square"></use><g class="guides"><use xlink:href="#s-path-guide" y="20" stroke="orange" fill="orange"></use><use xlink:href="#s-path-guide" y="85" stroke="yellowgreen" fill="yellowgreen"></use><use xlink:href="#s-path-guide" y="150" stroke="skyblue" fill="skyblue"></use></g></svg></li>
+      <li><b>stroke-linejoin</b>
+      <svg width="215" height="300"><symbol id="s-corner-guide"><circle r="3" cx="50" cy="100"></circle><circle r="3" cx="164" cy="100"></circle><path d="M 30 50 h 80 v 80" stroke-width="2" fill="none" transform="rotate(-45 100 50)"></path></symbol><symbol id="s-corner"><path d="M 30 50 h 80 v 80" stroke-width="30" fill="none" transform="rotate(-45 100 50)"></path></symbol><use xlink:href="#s-corner" stroke="orangered" y="0" stroke-linejoin="miter"></use><use xlink:href="#s-corner" stroke="olivedrab" y="80" stroke-linejoin="round"></use><use xlink:href="#s-corner" stroke="steelblue" y="160" stroke-linejoin="bevel"></use><g class="guides"> <use xlink:href="#s-corner-guide" y="0" stroke="orange" fill="orange"></use> <use xlink:href="#s-corner-guide" y="80" stroke="yellowgreen" fill="yellowgreen"></use><use xlink:href="#s-corner-guide" y="160" stroke="skyblue" fill="skyblue"></use></g></svg></li>
+    </ul>
+    
+  </div></section>
+
+  <section class="slide"><div>
+        <h2>stroke</h2>
+        <b>stroke-dasharray</b>
+        <svg viewbox="0 0 400 160" class="demo--dasharray">
+          <path d="M 0 20 h 500" stroke="purple" stroke-width="1" stroke-dasharray="1"></path>
+          <path d="M 0 40 h 500" stroke="mediumspringgreen" stroke-width="15" stroke-dasharray="1 3"></path>
+          <path d="M 0 60 h 500" stroke="orangered" stroke-width="1" stroke-dasharray="5%"></path>
+          <path d="M 0 80 h 500" stroke="green" stroke-width="1" stroke-dasharray="1 5"></path>
+          <path d="M 0 100 h 500" stroke="steelblue" stroke-width="1" stroke-dasharray="2 7 6"></path> 
+          <path d="M 0 120 h 500" stroke="orange" stroke-width="5" stroke-dasharray="5"></path> 
+          <path d="M 0 140 h 500" stroke="mediumseagreen" stroke-width="1" stroke-dasharray="12% 5%"></path></svg>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>stroke</h2>
+    <ul class="list--columns">
+      <li><b>stroke-dashoffset</b>
+      <svg width="270" height="270"><g class="g-circles" fill="none" stroke-width="15" stroke-dasharray="25% 110%" transform="rotate(72 135 135)"><circle r="115" cx="135" cy="135" stroke="crimson"></circle><circle r="115" cx="135" cy="135" stroke="orangered" stroke-dashoffset="25%"></circle><circle r="115" cx="135" cy="135" stroke="gold" stroke-dashoffset="50%"></circle></g></svg></li>
+      <li><b>stroke-opacity</b>
+        <svg width="270" height="270"><g class="g-circles" fill="none" stroke-width="15"><circle r="40" cx="60" cy="60" stroke="gold" stroke-opacity=".7"></circle><circle r="70" cx="120" cy="120" stroke="yellowgreen" stroke-opacity=".5" stroke-width="25"></circle><circle r="60" cx="180" cy="180" stroke="skyblue" stroke-opacity=".25"></circle></g></svg></li>
+    </ul>
+  </div></section>
+
+  <section class="slide bg--concrete"><div>
+    <h2>Анимация stroke</h2>
+    код!!! цвета
+    <div class="demo--stroke-dasharr-anim">
+      <svg viewBox="0 0 175 200">
+        <path d="M175 58.756c0-39.538-28.619-58.756-87.5-58.756s-87.5 19.219-87.5 58.756c0 45.469 82.331 97.925 85.831 100.131 0.006 0.006 0.019 0 0.031 0.006 0.069 0.044 0.144 0.044 0.219 0.081 0.45 0.238 0.925 0.4 1.419 0.4s0.969-0.162 1.419-0.394c0.069-0.037 0.15-0.037 0.219-0.081 0.006-0.006 0.019 0 0.031-0.006 3.5-2.213 85.831-54.663 85.831-100.137zM112.5 58.756c0 34.75-17.975 75.756-25 90.456-7.025-14.694-25-55.681-25-90.456 0-47.063 14.269-52.506 25-52.506s25 5.444 25 52.506zM56.25 58.756c0 29.981 12.369 63.381 20.819 82.725-17.138-18.106-45.819-52.85-45.819-82.725 0-29.313 11.988-45.794 37.356-50.825-8.275 9.050-12.356 25.888-12.356 50.825zM118.75 58.756c0-24.938-4.075-41.775-12.356-50.825 25.369 5.031 37.356 21.519 37.356 50.825 0 29.875-28.681 64.612-45.819 82.725 8.45-19.337 20.819-52.744 20.819-82.725zM6.25 58.756c0-24.819 12.419-40.438 38.475-47.7-13.213 9.575-19.725 25.4-19.725 47.7 0 26.269 19.594 54.95 36.487 74.831-24.113-19.175-55.237-48.937-55.237-74.831zM113.512 133.588c16.894-19.881 36.488-48.556 36.488-74.831 0-22.3-6.513-38.131-19.725-47.7 26.056 7.263 38.475 22.881 38.475 47.7 0 25.894-31.125 55.656-55.238 74.831zM71.875 168.75c-1.725 0-3.125 1.4-3.125 3.125v18.75c0 5.256 4.119 9.375 9.375 9.375h18.75c5.256 0 9.375-4.119 9.375-9.375v-18.75c0-1.725-1.4-3.125-3.125-3.125h-31.25zM100 190.625c0 1.838-1.287 3.125-3.125 3.125h-18.75c-1.838 0-3.125-1.287-3.125-3.125v-15.625h25v15.625z" fill="#000000" transform="scale(.9) translate(9,9)"/>
+      </svg>
+    </div>
+  </div></section>
+
+    <section class="slide bg--dark-triangles"><div>
+      <h2>dasharray + dashoffset</h2>
+      код!!!
+      <div class="demo--stroke-dashofset-anim">
+       <svg viewbox="0 0 240 240">
+          <g class="g-circles" fill="none" stroke-width="5" stroke-dasharray="8% 45%">
+              <circle r="115" cx="120" cy="120" stroke="crimson" />
+              <circle r="115" cx="120" cy="120" stroke="orangered" stroke-dashoffset="8%" />
+              <circle r="115" cx="120" cy="120" stroke="orange" stroke-dashoffset="16%" />
+              <circle r="115" cx="120" cy="120" stroke="gold" stroke-dashoffset="24%" />
+              <circle r="115" cx="120" cy="120" stroke="yellowgreen" stroke-dashoffset="32%" />
+              <circle r="115" cx="120" cy="120" stroke="steelblue" stroke-dashoffset="40%" />
+              <circle r="115" cx="120" cy="120" stroke="blueviolet" stroke-dashoffset="48%" />
+          </g>
+          <g class="g-circles" fill="none" stroke-width="120" stroke-dasharray="8% 45%" 
+          transform="translate(24 24) scale(.8)">
+              <circle r="60" cx="120" cy="120" stroke="crimson" />
+              <circle r="60" cx="120" cy="120" stroke="orangered" stroke-dashoffset="8%" />
+              <circle r="60" cx="120" cy="120" stroke="orange" stroke-dashoffset="16%" />
+              <circle r="60" cx="120" cy="120" stroke="gold" stroke-dashoffset="24%" />
+              <circle r="60" cx="120" cy="120" stroke="yellowgreen" stroke-dashoffset="32%" />
+              <circle r="60" cx="120" cy="120" stroke="steelblue" stroke-dashoffset="40%" />
+              <circle r="60" cx="120" cy="120" stroke="blueviolet" stroke-dashoffset="48%" />
+          </g>
+      </svg>
+    </div>
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Группировка и&nbsp;переиспользование</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;g></h2>
+    <div class="demo demo--g js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg  viewbox="0 0 190 100">
+<g id="circles--warm">
+  <circle fill="crimson" r="20" cx="25" cy="25"/>
+  <circle fill="red" r="20" cx="70" cy="25"/>
+  <circle fill="orange" r="20" cx="115" cy="25"/>
+  <circle fill="gold" r="20" cx="160" cy="25"/>
+</g>
+<g id="circles--cold">
+  <circle fill="yellowgreen" r="20" cx="25" cy="75"/>
+  <circle fill="skyblue" r="20" cx="70" cy="75"/>
+  <circle fill="steelblue" r="20" cx="115" cy="75"/>
+  <circle fill="darkviolet" r="20" cx="160" cy="75"/>
+</g>
+</svg></textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+      <h2>&lt;use></h2>
+      <div class="demo demo--use js-demo">
+        <div class="demo__content">
+          <textarea class="demo__textfield demo__code"><svg viewbox="0 0 190 153">
+  <g id="rects--use">
+    <rect fill="gold" width="40" height="40" x="4" y="4"/>
+    <rect fill="yellowgreen" width="40" height="40" x="50" y="4"/>
+    <rect fill="skyblue" width="40" height="40" x="96" y="4"/>
+    <rect width="40" height="40" x="142" y="4" id="square--use"/>
+  </g>
+
+  <use xlink:href="#rects--use" x="0" y="50" 
+           fill="none" stroke="steelblue" stroke-width="3"/>
+
+  <use xlink:href="#square--use" x="-46" y="100" 
+           fill="tomato" stroke="crimson" stroke-width="8"/>
+  </svg>
+</textarea>
+      </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;defs></h2>
+    <div class="demo demo--defs js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 190 153">
+<defs>
+  <g id="rects--defs">
+    <rect fill="gold" width="40" height="40" x="4" y="4"/>
+    <rect fill="yellowgreen" width="40" height="40" x="50" y="4"/>
+    <rect fill="skyblue" width="40" height="40" x="96" y="4"/>
+    <rect width="40" height="40" x="142" y="4" id="square--defs"/>
+  </g>
+</defs>
+
+<use xlink:href="#rects--defs" x="0" y="50" fill="none" stroke="steelblue" stroke-width="3"/>
+
+<use xlink:href="#square--defs" x="-46" y="100" fill="tomato" stroke="crimson" stroke-width="8"/>
+</svg>
+</textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;symbol></h2>
+    <div class="demo demo--symbol js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 190 153">
+<defs>
+  <symbol id="rects--symbol">
+    <rect fill="gold" width="40" height="40" x="4" y="4"/>
+    <rect fill="yellowgreen" width="40" height="40" x="50" y="4"/>
+    <rect fill="skyblue" width="40" height="40" x="96" y="4"/>
+    <rect width="40" height="40" x="142" y="4" id="square--symbol"/>
+  </symbol>
+</defs>
+
+<use xlink:href="#rects--symbol" x="0" y="50" fill="none" stroke="steelblue" stroke-width="3"/>
+
+<use xlink:href="#square--symbol" x="-46" y="100" fill="tomato" stroke="crimson" stroke-width="8"/>
+</svg>
+</textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;pattern></h2>
+    <div class="demo demo--pattern js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox='0 0 280 200'>
+          <defs>
+            <pattern id="pt--squares" viewBox="0 0 180 40" width="180" height="45" x="0" y="0" patternUnits="userSpaceOnUse">
+              <rect fill="gold" width="40" height="40" x="0" y="0"></rect>
+              <rect fill="yellowgreen" width="40" height="40" x="45" y="0"></rect>
+              <rect fill="skyblue" width="40" height="40" x="90" y="0"></rect>
+              <rect fill="orangered" width="40" height="40" x="135" y="0"></rect>
+            </pattern>
+          </defs>
+          <g fill="url(#pt--squares)">
+            <rect width="100%" height="200" x="0" y="0"></rect>
+          </g>
+        </svg>
+      </textarea>
+      <div class="demo-switch demo-switch--horizontal">
+          <dl data-attr="fill">
+            <dd data-val="url(#pt--squares)" class="switch--checked">Shapes</dd>
+            <dd data-val="url(#pt-rainbow-stripes)">Gradient</dd>
+            <dd data-val="url(#pt-wood)">Image</dd>
+          </dl>
+        </div>
+    </div></div>
+  </div></section>
+  
+  <section class="slide bg--gray-wood"><div>
+      <h2 class="free-fly">Трансформации</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>translate, scale</h2>
+    <div class="demo demo--transform js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 300 200">
+          <rect x="10" y="5" width="200" height="120" fill="hsla(120,100%,50%,.2)"></rect>
+          <rect x="5" y="5" width="200" height="120" fill="hsla(50,100%,50%,.6)" transform="translate(70, 70)"></rect>
+        </svg></textarea>
+        </div>
+    </div>
+    <div class="demo demo--transform js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 200 130">
+          <rect x="5" y="5" width="120" height="120" fill="hsla(120,100%,50%,.2)"></rect>
+          <rect x="5" y="5" width="120" height="120" fill="hsla(50,100%,50%,.6)" transform="scale(1.5, .5)"></rect>
+        </svg></textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>rotate, skew</h2>
+    <div class="demo demo--transform js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 200 200">
+<rect x="25" y="25" width="150" height="150" fill="hsla(120,100%,50%,.2)"></rect>
+<rect x="25" y="25" width="150" height="150" fill="hsla(50,100%,50%,.6)" transform="rotate(45 100 100)"></rect>
+</svg>
+      </textarea>
+    </div></div>
+
+    <div class="demo demo--transform js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 200 200">
+          <rect fill="hsla(120,100%,50%,.2)" height="150" width="150" y="25" x="25"/>
+          <rect transform="skewY(5)" fill="hsla(50,100%,50%,.6)" height="150" width="150" y="25" x="25"/>
+        </svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>matrix</h2>
+    <div class="demo demo--transform js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewbox="0 0 200 200">
+          <rect x="25" y="25" width="150" height="150" 
+                   fill="hsla(120,100%,50%,.2)"></rect>
+          <rect x="25" y="25" width="150" height="150" 
+                   fill="hsla(50,100%,50%,.6)" 
+                   transform="matrix(.3 0 0 .95 55 25)"></rect>
+        </svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Рисуем SVG</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Редакторы</h2>
+    <ul>
+      <li><a href="http://www.adobe.com/ru/products/illustrator.html">Adobe Illustrator</a> - 599 руб./месяц в составе подписки на Creative Cloud</li>
+      <li class="next"><a href="http://www.bohemiancoding.com/sketch/">Sketch</a> - для Mac OS, $79.99</li>
+      <li class="next"><a href="http://www.inkscape.org/en/">Inkscape</a> - бесплатный</li>
+      <li>+1</li>
+    </ul>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Сайты с SVG-графикой</h2>
+    <ul>
+      <li>
+        <a href="http://iconmelon.com/">iconmelon.com</a> - монохромные и цветные иконки, вставка через <code>use</code>
+        <a href="assets/img/preview/iconmelon.png" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a>
+      </li>
+      <li class="next">
+        <a href="http://icomoon.io/app/#/select">icomoon.io</a> - монохромные, на выходе шрифт или SVG. Можно загрузить свои иконки и сделать шрифт
+        <a href="assets/img/preview/icomoon-generator.png" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a>
+      </li>
+      <li class="next">
+        <a href="http://www.flaticon.com/">flaticon.com</a> - большой выбор на разные темы. На выходе SVG, PNG или шрифт.
+        <a href="assets/img/preview/flaticons-large.png" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a>
+      </li>
+      <li>+1</li>
+    </ul>
+
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Оптимизация</h2>
+
+    <ul>
+      <li><a href="http://petercollingridge.appspot.com/svg-optimiser">petercollingridge.appspot.com/svg-optimiser</a></li>
+      <li class="next"><a href="https://github.com/svg/svgo">github.com/svg/svgo</a></li>
+      <li>+ gui</li>
+      <li class="next"><a href="https://github.com/sindresorhus/grunt-svgmin">github.com/sindresorhus/grunt-svgmin</a></li>
+    </ul>
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Способы вставки</h2>
+  </div></section>
+ 
+  <section class="slide"><div>
+    <p>+ картинки с поддержкой браузерами!</p>
+        <ul>
+          <li>Embed/object/iframe</li>
+          <li class="next">Img</li>
+          <li class="next">Css backgrounds</li>
+          <li class="next">Inline SVG</li>
+          <li class="next">Font</li>
+        </ul>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Какой лучше?</h2>
+    <ul>
+      <li><b>инлайновый SVG</b> - для оформления внешними стилями  и&nbsp;управления через JS</li>
+      <li class="next"><b>SVG-спрайт</b> - если нет необходимости управления через внешний&nbsp;CSS</li>
+      <li class="next"><b>иконочный шрифт</b> - удобно подключать и использовать, но проблемы с&nbsp;поддержкой браузерами 
+      <a href="assets/img/preview/svg-stacks.png" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a></li>
+    </ul>
+  </div></section>
+        
+
+  <section class="slide"><div>
+    <h2>SVG-стеки</h2>
+    <p>Начало истории: <a href="simurai.com/blog/2012/04/02/svg-stacks/">SVG Stacks</a></p>
+
+    <div class="demo demo--stacks js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg viewBox="0 0 200 200">
+  <g id="no">
+  <rect fill="#FF4646" width="200" height="200" rx="8"></rect>
+  <text x="28" y="130">No.</text>
+  </g>
+  <g id="yes" class="hidden">
+  <rect fill="#a2d529" width="200" height="200" rx="8"></rect>
+  <text x="18" y="130">Yes!</text>
+  </g>
+  </svg>
+      </textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>SVG-стеки: CSS</h2>
+    <pre>
+      <code>.hidden { display: none; }</code>
+      <code class="next">:target { display: block; }</code>
+    </pre> 
+    <p class="next">assets/img/yes-no.svg<b>#yes</b></p>
+    <ul class="list--stacks-demo">
+      <li class="next">
+        <div class="text">/assets/img/yes-no.svg</div>
+        <iframe src="./assets/img/svg/yes-no.svg" width="150px" height="150px"></iframe>
+      </li>
+      <li class="next">
+        <div class="text">/assets/img/yes-no.svg<b>#yes</b></div>  
+        <iframe src="./assets/img/svg/yes-no.svg#yes" width="150px" height="150px"></iframe>
+      </li>
+    </ul>
+      
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>SVG-стеки: пробуем</h2>
+    <ul class="list--stacks-demo">
+      <li>
+        <div class="text">Iframe</div>
+        <iframe src="./assets/img/svg/yes-no.svg#yes" width="150px" height="150px"></iframe>
+      </li>
+      <li class="next">
+        <div class="text">Background-image</div>
+        <div class="test-stacks"></div>
+      </li>
+    </ul>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>SVG-стеки: поддержка</h2>
+    
+    <ul>
+      <li>вставка через <code>embed</code> и <code>iframe</code> работает во всех браузерах;</li>
+      <li class="next">вставка через <code>img</code> и <code>background-image</code> работает в IE9+, Firefox и старой Опере, и совсем не работает в вебкитах.</li>
+      <li class="next">: (</li>
+    </ul>
+
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Маски</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;clip-path></h2>
+    <p>+ animation!</p>
+    <div class="demo demo--masks js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg width="280" height="190">
+  <g clip-path="url(#clipping-star)">
+    <image xlink:href="./assets/img/parts/wood.jpg" width="500" height="500"></image>
+  </g>
+</svg></textarea>
+
+    <div class="demo-switch demo-switch--horizontal">
+      <dl data-attr="clip-path">
+        <dd data-val="url(#clipping-star)" class="switch--checked">Shape</dd>
+        <dd data-val="url(#clipping-text)">Text</dd>
+      </dl>
+    </div>
+</div>
+
+    </div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Объявляем</h2>
+    <pre>
+      <code>&lt;clippath id="clipping-star"></code>
+      <code>&lt;polygon points="98.499..." /></code>
+      <code>&lt;/clippath></code>
+    </pre>
+
+    <pre>
+      <code>&lt;clippath id="clipping-text"></code>
+      <code>&lt;text x="0" y=".88em">Text&lt;/text></code>
+      <code>&lt;/clippath></code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Используем</h2>
+    <pre>
+      <code>&lt;g clip-path="url(#clipping-star)"></code>
+      <code>...</code>
+      <code>&lt;/g></code>
+    </pre>
+
+    <pre>
+      <code>g {</code>
+      <code>clip-path: url(#clipping-star);</code>
+      <code>}</code>
+    </pre>
+
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;mask></h2>
+    <div class="demo demo--mask js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg width="200" height="300">
+  <g mask="url(#masking)">
+      <image xlink:href="./assets/img/parts/flower-m.jpg" width="200" height="300"></image>
+  </g>
+</svg></textarea>
+        <b>Маска</b>
+        <textarea class="demo__textfield demo__codepart"><mask id="masking" maskunits="objectBoundingBox" 
+          maskcontentunits="objectBoundingBox">
+        <rect y="0" width="1" height="1" fill="url(#gradient)" />
+        <circle cx="0" cy=".5" r=".3" fill="gray" />
+        <circle cx="1" cy=".5" r=".25" fill="white" />
+        ...
+      </mask></textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;mask></h2>
+    <div class="demo demo--mask js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg width="200" height="300">
+  <g mask="url(#masking-soft)">
+      <image xlink:href="./assets/img/parts/flower-m.jpg" width="200" height="300"></image>
+  </g>
+</svg></textarea>
+        <b>Маска</b>
+        <textarea class="demo__textfield demo__codepart"><mask id="masking-soft" maskunits="objectBoundingBox" 
+              maskcontentunits="objectBoundingBox">
+        <rect y="0" width="1" height="1" fill="url(#r-gradient)" />
+      </mask></textarea>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>&lt;mask></h2>
+    <div class="demo demo--mask js-demo">
+      <div class="demo__content">
+        <textarea class="demo__textfield demo__code"><svg width="200" height="300">
+  <g mask="url(#masking-lum)">
+    <rect y="0" width="200" height="300" fill="url(#ymc-gradient)"></rect>
+  </g>
+</svg></textarea>
+        <b>Маска</b>
+        <textarea class="demo__textfield demo__codepart"><mask id="masking-lum" maskunits="objectBoundingBox" 
+          x="0" y="0">
+        <image xlink:href="./assets/img/parts/flower-m.jpg" width="200" height="300" />
+      </mask></textarea>
+    </div></div>
+  </div></section>
+
+
+  <section class="slide"><div>
+    <h2>Используем</h2>
+    <pre>
+      <code>&lt;g mask="url(#masking)"></code>
+      <code>...</code>
+      <code>&lt;/g></code>
+    </pre>
+
+    <pre>
+      <code>g {</code>
+      <code>mask: url(#masking);</code>
+      <code>}</code>
+    </pre>
+      
+  </div></section>
+  
+<section class="slide bg--gray-wood"><div>
+    <h2 class="free-fly">Оформление SVG</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Используем шрифт</h2>
+    <div class="wrapper wrapper--iconfont"> 
+        <span class="iconfont__icon icon-alarm"></span> 
+        <span class="iconfont__icon icon-cool"></span> 
+        <span class="iconfont__icon icon-bubbles"></span>
+        <span class="iconfont__icon icon-heart"></span>
+    </div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Используем SVG: fill, stroke</h2>
+    <div class="demo demo--fill js-demo">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg viewbox='0 0 140 205'>
+<g fill="url(#pt-wood)" stroke="url(#gr-hot-cold)">
+<polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41" 
+stroke-width="5" transform="translate(0,5)"></polygon>
+<text x="0" y="95%" stroke-width="2">Text</text>  
+</g>
+</svg></textarea>
+      <div class="demo-switch">
+        <dl data-attr="fill">
+          <dt>Fill:</dt>
+          <dd data-val="none">None</dd>
+          <dd data-val="orangered">Color</dd>
+          <dd data-val="url(#gr-hot-cold)">Gradient</dd>
+          <dd data-val="url(#pt-wood)" class="switch--checked">Pattern</dd>
+          <dd data-val="url(#pt-text)">Text</dd>
+        </dl>
+        <dl data-attr="stroke">
+          <dt>Stroke:</dt>
+          <dd data-val="none">None</dd>
+          <dd data-val="lightseagreen">Color</dd>
+          <dd data-val="url(#gr-hot-cold)" class="switch--checked">Gradient</dd>
+          <dd data-val="url(#pt-wood)">Pattern</dd>
+          <dd data-val="url(#pt-text)">Text</dd>
+        </dl>
+      </div>
+    </div></div>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>сравнение масок</h2>
+    <p>с поддержкой</p>
+  </div></section>
+
+  <section class="slide bg--concrete"><div>
+    <h2>Эффекты с обводками</h2>
+      
+    <div class="wrapper wrapper--icons-stroke">
+      <ul class="icons">
+
+        <li class="icon icon--stroke">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#home">
+          </svg>
+        </li>
+
+        <li class="icon icon--dasharray">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#heart">
+          </svg>
+        </li>
+
+        <li class="icon icon--gradient"> 
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#cog">
+          </svg>
+        </li>
+
+        <li class="icon icon--gradient2">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#camera">
+          </svg>
+        </li>
+      </ul>
+    </div> 
+
+  </div></section>
+
+  <section class="slide bg--gray-wood"><div>
+    <h2>Фильтры</h2>
+    <p>Проблема фильтров (скрин с телефона)</p>
+    <div class="wrapper wrapper--icons-filters">
+      <ul class="icons">
+
+        <li class="icon icon--blur">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#home">
+          </svg>
+        </li>
+
+        <li class="icon icon--shadow">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#heart">
+          </svg>
+        </li>
+
+        <li class="icon icon--multystrokes"> 
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#cog">
+          </svg>
+        </li>
+
+        <li class="icon icon--innershadow">
+          <svg viewbox="0 0 100 100">
+            <use xlink:href="#camera">
+          </svg>
+        </li>
+      </ul>
+    </div> 
+
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Размеры</h2>
+    <p>viewbox</p>
+  </div></section>
+  <!-- 
+
+  <section class="slide"><div>
+      <h2>Анимация</h2>
+      <p></p>
+  </div></section>
+-->
+  <section class="slide"><div>
+        <h2>To Do</h2>
+        <ul>
+          <li>форматирование кода</li>
+          <li>загрузить все картинки</li>
+          <li>дописать про viewbox и animation</li>
+          <li>поправить демо с размерами</li>
+        </ul>
+  </div></section>
+
+  <section class="slide"><div>
+      <h2>Спасибо за внимание (I &hearts; SVG)</h2>
+      
+      <p>Тут ещё должна быть пара слайдов, а также разные ссылки куда копать дальше.</p>
+
+      <ul>
+          <li><a href="http://css.yoksel.ru/"> больше про SVG на css.yoksel.ru</a></li>
+          <li><a href="https://twitter.com/yoksel">@yoksel</a></li>
+          <li><a href="http://codepen.io/yoksel/public/">codepen.io/yoksel/public</a></li>
+        </ul>
+
+      <p>Иконки: <a href="http://icomoon.io/">icomoon.io</a></p>
+      <p>http://www.transparenttextures.com/</p>
+      <p>QR-код</p>
+      
+  </div></section>
+
+
+  
+  <!-- <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p> -->
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="node_modules/shower-core/shower.min.js"></script>
+  <script src="./assets/js/jquery-2.1.0.min.js"></script>
+  <script src="./assets/js/jquery-ui.min.js"></script>
+
+  <script src="./assets/js/script.js"></script>
+  <!-- Copyright © 2014 yoksel. -->
+</body>
+</html>
