@@ -4,6 +4,8 @@
 .slide H3,
 .slide H4,
 .slide H5 {
+  /*position: relative;*/
+  z-index: 2;
   font-family: "Ubuntu Condensed",sans-serif;
   line-height: 1;
   font-weight: normal;
@@ -48,6 +50,14 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.slide .free-fly .tooltip {
+  position: absolute;
+  left: 0;
+  bottom: -1.9em;
+  width: 100%;
+  font-size: 30px;
+  color: #555555;
 }
 
 /* SVG
@@ -175,6 +185,15 @@ svg {
   color: #FFF;
 }
 
+/* Backgrounds
+------------------------- */
+.bg--dark {
+  background: #000;
+}
+.bg--dark H2 {
+  color: #FFF;
+}
+
 .bg--gray-wood {
   background: #444444 url(/assets/img/parts/dark-wood.jpg);
 }
@@ -192,6 +211,18 @@ svg {
 }
 .bg--dark-triangles H2 {
   color: #FFF;
+}
+
+/* Columns
+------------------------- */
+.column {
+  width: 49%;
+}
+.column--left {
+  float: left;
+}
+.column--right {
+  float: right;
 }
 
 .ui-resizable {
@@ -324,6 +355,26 @@ svg {
   background-position: -7.45em 0;
 }
 
+/* Common
+------------------------- */
+.list--columns LI {
+  display: inline-block;
+  margin-right: 2em;
+  vertical-align: top;
+  text-indent: 0 !important;
+  text-align: center;
+  /*border: 1px solid;*/
+}
+.list--columns LI:before {
+  content: none !important;
+}
+.list--columns LI B {
+  display: block;
+  font-size: .8em;
+}
+
+/* Cat
+------------------------- */
 .preview--cat {
   display: table-cell;
   width: 864px;
@@ -336,59 +387,161 @@ svg {
   width: auto;
 }
 
-/* Common
+/* Demo Filling
 ------------------------- */
-.demo {
+.slide--fillingdemo PRE {
+  position: relative;
+  z-index: 2;
+  padding: .5em;
+  background: #FFF;
+  /*font-size: 1.4em;*/
+}
+.slide--fillingdemo .lower-level {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 27%;
+  font-size: 90px;
+}
+.slide--fillingdemo .demo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.slide--strokewidth PRE {
+  width: 60%;
+  margin: 20.5% auto 0;
+}
+
+/* Demo Live
+------------------------- */
+.demo--live {
   margin-bottom: 24px;
 }
-.demo:after {
+.demo--live:after {
   content: "";
   display: table;
   width: 100%;
 }
-.demo__content {
-  float: right;
-  width: 60%;
-  line-height: 1;
+.demo--live .demo__content {
+  /*float: right;*/
+  /*width: $textarea-width;*/
+  margin-top: 2em;
+  /*line-height: 1;*/
 }
-.demo__view {
-  float: left;
-  width: 35%;
+.demo--live .demo__view {
+  /*float: left;   
+  width: 35%;*/
   /*border: 2px solid;*/
 }
-.demo__view svg {
+.demo--live .demo__view svg {
   display: block;
   margin: 0 auto;
   border: 1px solid #EEE;
 }
-.demo__textfield {
+.demo--live .demo__textfield {
   width: 100%;
   border: 1px solid #CCC;
   border-radius: 5px;
-  font-size: 14.4px;
+  font-family: 'Anka Coder', monospace;
+  font-size: 21.6px;
   line-height: 1.3;
   color: #222;
 }
-.demo__code {
-  height: 134.37216px;
+.demo--live .demo__code {
+  height: 201.55824px;
 }
-.demo pre {
+.demo--live pre {
   float: right;
   width: 65%;
   margin-top: 1em;
 }
-.demo B {
+.demo--live B {
   display: inline-block;
   font: bold .8em/1 Arial !important;
 }
-.demo__textfield + B {
-  margin: 1em 0 .5em;
+
+.demo--stacks .demo__view {
+  float: left;
+  width: 35%;
+  /*border: 2px solid;*/
+}
+.demo--stacks .demo__content {
+  float: right;
+  width: 60%;
 }
 
 /* Demo Rect
 ------------------------- */
 .demo--rect .demo__code {
-  /*@include textarea-height (7.4);*/
+  height: 149.8068px;
+}
+.demo--rect-1 .demo__textfield {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background-position: 0 .2em;
+}
+.demo--rect-2 .demo__textfield {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(81.7128px, palegoldenrod), color-stop(108.9504px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 81.7128px, palegoldenrod 81.7128px, palegoldenrod 108.9504px, transparent 108.9504px);
+  background: linear-gradient(transparent 81.7128px, palegoldenrod 81.7128px, palegoldenrod 108.9504px, transparent 108.9504px);
+  background-position: 0 .2em;
+}
+.demo--rect-3 .demo__textfield {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(81.7128px, palegoldenrod), color-stop(108.9504px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 81.7128px, palegoldenrod 81.7128px, palegoldenrod 108.9504px, transparent 108.9504px);
+  background: linear-gradient(transparent 81.7128px, palegoldenrod 81.7128px, palegoldenrod 108.9504px, transparent 108.9504px);
+  background-position: 0 .2em;
+}
+
+/* Demo Circle
+------------------------- */
+.demo--circle .demo__code {
+  height: 149.8068px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background-position: 0 .2em;
+}
+
+/* Demo Polygon
+------------------------- */
+.demo--polygon .demo__code {
+  height: 149.8068px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background-position: 0 .2em;
+}
+
+.demo--polygon-star .demo__code {
+  height: 149.8068px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(54.4752px, palegoldenrod), color-stop(81.7128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px), -webkit-linear-gradient(transparent 54.4752px, palegoldenrod 54.4752px, palegoldenrod 81.7128px, transparent 81.7128px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px), linear-gradient(transparent 54.4752px, palegoldenrod 54.4752px, palegoldenrod 81.7128px, transparent 81.7128px);
+  background-position: 0 .2em;
+}
+
+.demo--line .demo__code {
+  height: 149.8068px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background-position: 0 .2em;
+}
+
+.demo--polyline .demo__code {
+  height: 149.8068px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(54.4752px, palegoldenrod), color-stop(81.7128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px), -webkit-linear-gradient(transparent 54.4752px, palegoldenrod 54.4752px, palegoldenrod 81.7128px, transparent 81.7128px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px), linear-gradient(transparent 54.4752px, palegoldenrod 54.4752px, palegoldenrod 81.7128px, transparent 81.7128px);
+  background-position: 0 .2em;
 }
 
 /* Demo Switch
@@ -457,23 +610,7 @@ svg {
   font: bold italic 60px/1 Georgia;
 }
 .demo--fill .demo__code {
-  height: 145.2672px;
-}
-
-.list--columns LI {
-  display: inline-block;
-  margin-right: 2em;
-  vertical-align: top;
-  text-indent: 0 !important;
-  text-align: center;
-  /*border: 1px solid;*/
-}
-.list--columns LI:before {
-  content: none !important;
-}
-.list--columns LI B {
-  display: block;
-  font-size: .8em;
+  height: 217.9008px;
 }
 
 #pt-text {
@@ -488,7 +625,7 @@ svg {
 /* Demo stroke-dasharray Animation
 ------------------------- */
 .demo--stroke-dasharr-anim {
-  height: 320px;
+  /*height: 320px;*/
 }
 .demo--stroke-dasharr-anim path {
   fill: none;
@@ -513,7 +650,7 @@ svg {
 /* Demo stroke-dasharray + stroke-offset Animation
 ------------------------------------------------- */
 .demo--stroke-dashofset-anim {
-  height: 320px;
+  /*height: 320px;*/
 }
 .demo--stroke-dashofset-anim .g-circles circle {
   -webkit-transform-origin: 120px 120px;
@@ -524,8 +661,8 @@ svg {
   transform: rotate(0);
 }
 .demo--stroke-dashofset-anim .g-circles circle {
-  -webkit-animation: rotation 4s infinite alternate;
-  animation: rotation 4s infinite alternate;
+  -webkit-animation: rotation 6s infinite alternate;
+  animation: rotation 6s infinite alternate;
 }
 .demo--stroke-dashofset-anim .g-circles circle:nth-child(2) {
   -webkit-animation-delay: 0.5s;
@@ -604,10 +741,10 @@ svg {
   height: 150px;
 }
 .demo--g .demo__code {
-  height: 254.2176px;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(18.1584px, palegoldenrod), color-stop(36.3168px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(127.1088px, palegoldenrod), color-stop(145.2672px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 18.1584px, palegoldenrod 18.1584px, palegoldenrod 36.3168px, transparent 36.3168px), -webkit-linear-gradient(transparent 127.1088px, palegoldenrod 127.1088px, palegoldenrod 145.2672px, transparent 145.2672px);
-  background: linear-gradient(transparent 18.1584px, palegoldenrod 18.1584px, palegoldenrod 36.3168px, transparent 36.3168px), linear-gradient(transparent 127.1088px, palegoldenrod 127.1088px, palegoldenrod 145.2672px, transparent 145.2672px);
+  height: 231.5196px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(27.2376px, palegoldenrod), color-stop(54.4752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
+  background: linear-gradient(transparent 27.2376px, palegoldenrod 27.2376px, palegoldenrod 54.4752px, transparent 54.4752px);
   background-position: 0 .2em;
 }
 
@@ -617,7 +754,7 @@ svg {
   height: 180px;
 }
 .demo--use .demo__code {
-  height: 254.2176px;
+  height: 381.3264px;
 }
 
 /* Demo Defs
@@ -626,7 +763,7 @@ svg {
   height: 180px;
 }
 .demo--defs .demo__code {
-  height: 290.5344px;
+  height: 435.8016px;
 }
 
 /* Demo Symbol
@@ -635,7 +772,7 @@ svg {
   height: 180px;
 }
 .demo--symbol .demo__code {
-  height: 290.5344px;
+  height: 435.8016px;
 }
 
 /* Demo pattern
@@ -650,7 +787,7 @@ svg {
   height: 200px;
 }
 .demo--pattern .demo__code {
-  height: 308.6928px;
+  height: 463.0392px;
 }
 
 /* Demo transform
@@ -660,7 +797,7 @@ svg {
   height: 150px;
 }
 .demo--transform .demo__code {
-  height: 145.2672px;
+  height: 217.9008px;
 }
 
 /* Demo stacks
@@ -707,10 +844,10 @@ svg {
 /* Demo Masks
 ------------------------- */
 .demo--mask .demo__code {
-  height: 127.1088px;
+  height: 190.6632px;
 }
 .demo--mask .demo__codepart {
-  height: 90.792px;
+  height: 136.188px;
 }
 
 #clipping-text {
@@ -719,18 +856,6 @@ svg {
 
 #fo-text {
   font: bold italic 0.4em/1 Georgia;
-}
-
-.resizable--cat {
-  position: relative;
-  max-height: 450px;
-  border: 1px solid green;
-  padding: 0 3em 0 0;
-}
-.resizable--cat IFRAME {
-  height: 100%;
-  width: 100%;
-  border: 3px solid orange;
 }
 
 @font-face {

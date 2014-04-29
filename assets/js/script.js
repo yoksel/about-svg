@@ -1,16 +1,16 @@
 // Include sources
 // -------------------------------
 
-$( "#svg-filters" ).load( "./assets/img/svg/filters.svg", function() {
+$( "#svg-filters" ).load( "/assets/img/svg/filters.svg", function() {
   console.log( "Filters were loaded." );
 });
-$( "#svg-fills" ).load( "./assets/img/svg/fills.svg", function() {
+$( "#svg-fills" ).load( "/assets/img/svg/fills.svg", function() {
   console.log( "Fills were loaded." );
 });
-$( "#svg-masks" ).load( "./assets/img/svg/masks.svg", function() {
+$( "#svg-masks" ).load( "/assets/img/svg/masks.svg", function() {
   console.log( "Masks were loaded." );
 });
-$( "#svg-images" ).load( "./assets/img/svg/svg-lib.svg", function() {
+$( "#svg-images" ).load( "/assets/img/svg/svg-lib.svg", function() {
   console.log( "Images were loaded." );
 });
 
@@ -28,7 +28,7 @@ $(function() {
 var showShapeClass = "demo__view";
 
 
-$(".demo").each ( function(){
+$(".demo--live").each ( function(){
     var svgCode = $(this).find(".demo__code");
     var shape_code = svgCode.val();
     
