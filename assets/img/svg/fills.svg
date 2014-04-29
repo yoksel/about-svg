@@ -32,6 +32,22 @@
       <stop stop-color="hsl(200,100%,60%)" offset="100%"/>  
   </linearGradient>
 
+  <linearGradient id="gr-simple" x1="0" y1="0" x2="100%" y2="50%">
+      <stop stop-color="hsl(350,100%,45%)" offset="0"/>
+      <stop stop-color="hsl(50,100%,70%)" offset="50%"/>
+      <stop stop-color="hsl(200,100%,40%)" offset="100%"/>  
+  </linearGradient>
+
+  <linearGradient id="gr-simple-stripes" x1="0" y1="0" x2="30%" y2="30%" 
+                    gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+      <stop stop-color="hsl(350,100%,45%)" offset="0"/>
+      <stop stop-color="hsl(350,100%,45%)" offset="33%"/>
+      <stop stop-color="hsl(50,100%,70%)" offset="33%"/>
+      <stop stop-color="hsl(50,100%,70%)" offset="66%"/>
+      <stop stop-color="hsl(200,100%,40%)" offset="66%%"/>  
+      <stop stop-color="hsl(200,100%,40%)" offset="100%"/>  
+  </linearGradient>
+
   <linearGradient id="gr-gray-transp" x1="0" y1="0" x2="0" y2="100%">
       <stop stop-color="rgba(0,0,0,.2)" class="color-1"/>
       <stop stop-color="rgba(0,0,0,.02)" offset="90" class="color-2"/>
