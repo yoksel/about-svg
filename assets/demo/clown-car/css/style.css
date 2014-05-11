@@ -97,6 +97,8 @@ OBJECT {
   width: 332px;
   height: 500px;
   margin: 0 2em 2em 0;
+  transition: 1s;
+  border-radius: 10%/15%;
   }
 
 @media screen and (max-width: 600px) {
@@ -107,8 +109,8 @@ OBJECT {
     font-size: 1.1em;
     }
   OBJECT {
-    width: 100px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
     }
 }
 
@@ -121,14 +123,14 @@ OBJECT {
     }
   
   OBJECT {
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 199px;
     }
 }
 @media screen and (min-width: 801px) {
   OBJECT {
-    width: 332px;
-    height: 500px;
+    width: 500px;
+    height: 332px;
     }
 }
 
