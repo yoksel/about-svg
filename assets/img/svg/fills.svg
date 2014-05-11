@@ -189,7 +189,7 @@
 
   <pattern id="pt-mosaic-colored" width="400" height="400"
              patternUnits="userSpaceOnUse">
-    <use xlink:href="#s-mosaic-colored"/>
+    <image xlink:href="./assets/img/parts/mosaic-colored.png" width="800" height="600"/>
   </pattern>
 
   <pattern id="pt-colored-circles" width="160" height="160"
@@ -223,7 +223,7 @@
 
   <pattern id="pt-flower" patternunits="userSpaceOnUse"
     width="199" height="300" viewbox="0 0 199 300">
-    <image xlink:href="./assets/img/parts/flower-m.jpg" width="199" height="300" />
+    <image xlink:href="../../assets/img/parts/flower-m.jpg" width="199" height="300" />
   </pattern>
   <!--  -->
   <pattern id="pt-text" patternunits="userSpaceOnUse" width="350" height="112">
