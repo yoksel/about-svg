@@ -613,7 +613,7 @@
 
   <header class="caption">
     <h1>Позвольте представить: SVG</h1>
-    <p>@yoksel</p>
+    <p><a href="http://twitter.com/yoksel">@yoksel</a></p>
   </header>
 
   <section class="slide bg--dark" id="Cover"><div>
@@ -752,7 +752,8 @@
   </div></section>
 
   <section class="slide"><div>
-    <div class="free-fly"><a href="./assets/demo/clown-car/index.html">Демо</a></div>
+    <div class="free-fly"><a href="./assets/demo/clown-car/index.html">Демо</a>
+    <span class="tooltip">(изменяйте размер окна браузера)</span></div>
   </div></section>
 
   <section class="slide bg--dark"><div>
@@ -890,7 +891,7 @@
       <li><b>M, m</b> - moveto</li>
       <li><b>Z</b> - closepath</li>
     </ul>
-    <ul>
+    <ul class="next">
       <li><b>L, l</b> - lineto</li>
       <li><b>H, h</b> - horizontal lineto</li>
       <li><b>V, v</b> - vertical lineto</li>
@@ -2153,7 +2154,7 @@
       <code>&lt;/clippath></code></pre>
 
 
-    <pre class="pre--css"><code><mark class="important">clip-path</mark>: url(#clip-star);</code></pre>
+    <pre class="pre--css next"><code><mark class="important">clip-path</mark>: url(#clip-star);</code></pre>
   </div></section>
 
   <section class="slide"><div>
@@ -2177,12 +2178,12 @@
     <code>  &lt;text x="0" y=".88em" class="clip-text">Text&lt;/text></code>
     <code>&lt;/clippath></code></pre>
 
-    <pre class="pre--css"><code>.clip-text {</code>
+    <pre class="pre--css next"><code>.clip-text {</code>
     <code>  font: bold italic 6.5em/1 Georgia;</code>
     <code>  }</code>
     </pre>
 
-    <pre class="pre--css"><code>clip-path: url(#clip-text);</code></pre>
+    <pre class="pre--css next"><code>clip-path: url(#clip-text);</code></pre>
   </div></section>
 
   <section class="slide slide--heart"><div>
@@ -2230,7 +2231,7 @@
   </div></section>
 
   <section class="slide"><div>
-    <pre><code>&lt;mask id="mask" maskunits="userSpaceOnUse"</code>
+    <pre class="pre--svg"><code>&lt;mask id="mask" maskunits="userSpaceOnUse"</code>
     <code>      maskcontentunits="userSpaceOnUse"></code>
     <code>  &lt;rect y="0" width="100%" height="100%"</code>
     <code>      fill="url(#mask-gradient)" /></code>
@@ -2260,7 +2261,7 @@
   </div></section>
 
   <section class="slide"><div>
-    <pre><code>&lt;mask id="mask-soft" maskunits="objectBoundingBox"</code>
+    <pre class="pre--svg"><code>&lt;mask id="mask-soft" maskunits="objectBoundingBox"</code>
     <code>      maskcontentunits="objectBoundingBox"></code>
     <code>  &lt;rect y="0" width="1" height="1" </code>
     <code>      fill="url(#mask-radial-gradient)" /></code>
@@ -2289,11 +2290,11 @@
   </div></section>
 
   <section class="slide"><div>
-    <pre><code>&lt;mask id="mask-lum-pattern"></code>
+    <pre class="pre--svg"><code>&lt;mask id="mask-lum-pattern"></code>
       <code>  &lt;image xlink:href="your-image.png" width="200" height="300" /></code>
     <code>&lt;/mask></code></pre>
 
-    <pre>
+    <pre class="pre--css next">
       <code>mask: url(#mask);</code>
     </pre>
   </div></section>
@@ -2311,7 +2312,7 @@
   </div></section>
 
   <section class="slide"><div>
-        <h2 class="free-fly"><a href="http://codepen.io/yoksel/full/fsdbu">Все маски</a></h2>
+        <h2 class="free-fly"><a href="http://codepen.io/yoksel/full/fsdbu">Демо со всеми масками</a></h2>
   </div></section>
 
   <section class="slide bg--dark"><div>
@@ -2480,21 +2481,22 @@
     </div>
   </div></section>
 
- <!--  <section class="slide"><div>
+  <!-- <section class="slide"><div>
     <h2>Подводные камни</h2>
     <ul>
       <li>Размеры? (проверить)</li>
       <li>gradients repeat/reflect</li>
       <li>urls (проблема с get в FF)</li>
     </ul>
-  </div></section>
+  </div></section> -->
 
-  <section class="slide"><div>
+  <!-- <section class="slide"><div>
         <h2>To Do</h2>
         <ul>
-          <li>text? animation?</li>
+          <li>добавить редактирование dasharray - демо для прямоугольника</li>
+          <li>object в stacks?</li>
           <li>матрица</li>
-          <li>QR-код</li>
+          <li>text? animation?</li>
         </ul>
   </div></section> -->
 
