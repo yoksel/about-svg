@@ -625,6 +625,8 @@
       <!--
       fill="url(#pt-rainbow-stripes)"
       о чем это
+      интересно и увлекательно
+      для чего вам svg
       в конце будет ссылка на демо
        -->
   </div></section>
@@ -641,13 +643,13 @@
   <section class="slide"><div>
     <ul>
       <li>Масштабируется</li>
-      <li>Четкий на ретине
+      <li class="next">Четкий на ретине
         <a href="assets/img/preview/retina.jpg" class="img-preview"><svg viewbox="0 0 24 22"><use xlink:href="#image"/></svg></a></li>
-      <li>Человекопонятный код</li>
-      <li>Можно написать руками</li> <!-- хорошо для экспериментов -->
-      <li>Исходник</li>
-      <li>Переиспользуемые компоненты</li>
-      <li>Внутри - CSS и JavaScript</li>
+      <li class="next">Человекопонятный код</li>
+      <li class="next">Можно написать руками</li> <!-- хорошо для экспериментов -->
+      <li class="next">Исходник</li>
+      <li class="next">Переиспользуемые компоненты</li>
+      <li class="next">Внутри - CSS и JavaScript</li>
     </ul>
 
       <!-- MQ,
@@ -662,42 +664,10 @@
   <section class="slide"><div>
     <!-- begin wrapper--icons-16-64 -->
     <div class="wrapper wrapper--icons-16-64">
-      <ul class="icons icons-size--16" data-size="16">
-        <li class="icon icon--heart"></li>
-        <li class="icon icon--cloud"></li>
-        <li class="icon icon--star"></li>
-        <li class="icon icon--airplane"></li>
-        <li class="icon icon--speaker"></li>
-        <li class="icon icon--flask"></li>
-      </ul>
-
-      <ul class="icons icons-size--32" data-size="32">
-        <li class="icon icon--heart"></li>
-        <li class="icon icon--cloud"></li>
-        <li class="icon icon--star"></li>
-        <li class="icon icon--airplane"></li>
-        <li class="icon icon--speaker"></li>
-        <li class="icon icon--flask"></li>
-      </ul>
-
-      <ul class="icons icons-size--48" data-size="48">
-        <li class="icon icon--heart"></li>
-        <li class="icon icon--cloud"></li>
-        <li class="icon icon--star"></li>
-        <li class="icon icon--airplane"></li>
-        <li class="icon icon--speaker"></li>
-        <li class="icon icon--flask"></li>
-      </ul>
-
-      <ul class="icons icons-size--64" data-size="64">
-        <li class="icon icon--heart"></li>
-        <li class="icon icon--cloud"></li>
-        <li class="icon icon--star"></li>
-        <li class="icon icon--airplane"></li>
-        <li class="icon icon--speaker"></li>
-        <li class="icon icon--flask"></li>
-      </ul>
-     </div>
+      <span class="icon icon--star"></span>
+      <span class="icon icon--star icon--xl"></span>
+      <span class="icon icon--star icon--xxl"></span>
+    </div>
      <!-- end wrapper--icons-16-64 -->
   </div></section>
 
@@ -705,54 +675,28 @@
     <h2 class="free-fly">Media Queries</h2>
   </div></section>
 
-  <section class="slide"><div>
-    <div class="preview--cat">
-      <img src="./assets/img/preview/cat-whole.png" alt="Весь кот">
+  <section class="slide slide--fillingdemo"><div>
+    <div class="demo demo--cat">
+      <div class="demo__view">
+        <object data="./assets/demo/cat2.svg" type="image/svg+xml" class="obj-cat"></object>
+      </div>
     </div>
   </div></section>
 
-  <section class="slide"><div>
-    <div class="preview--cat">
-      <img src="./assets/img/preview/cat-forepaws.png" alt="Передние лапы">
-    </div>
-  </div></section>
-
-  <section class="slide"><div>
-    <div class="preview--cat">
-      <img src="./assets/img/preview/cat-head.png" alt="Голова кота">
-    </div>
-  </div></section>
-
-  <section class="slide"><div>
-    <div class="preview--cat">
-      <img src="./assets/img/preview/cat-smile.png" alt="Улыбка">
-    </div>
-  </div></section>
-
-  <section class="slide"><div>
-    <div class="free-fly"><a href="./assets/demo/cat2.svg">Поиграть с котом</a>
-      <span class="tooltip">(изменяйте размер окна браузера)</span>
-    </div>
-  </div></section>
-
-   <section class="slide bg--dark"><div>
+  <section class="slide bg--dark"><div>
       <h2 class="free-fly">&laquo;Машина с клоунами&raquo;</h2>
   </div></section>
 
-  <section class="slide slide--imgcenter"><div>
-    <img src="./assets/img/preview/clown-car-1.png">
-  </div></section>
-
-  <section class="slide slide--imgcenter"><div>
-    <img src="./assets/img/preview/clown-car-2.png">
-  </div></section>
-
-  <section class="slide slide--imgcenter"><div>
-    <img src="./assets/img/preview/clown-car-3.png">
+  <section class="slide slide--fillingdemo"><div>
+    <div class="demo demo--clownscar">
+      <div class="demo__view">
+        <object data="./assets/demo/clown-car/index.html" type="image/svg+xml" class="obj-clownscar"></object>
+      </div>
+    </div>
   </div></section>
 
   <section class="slide"><div>
-    <div class="free-fly"><a href="./assets/demo/clown-car/index.html">Демо</a>
+    <div class="free-fly"><a href="./assets/demo/clown-car/index.html">Демо и код</a>
     <span class="tooltip">(изменяйте размер окна браузера)</span></div>
   </div></section>
 
@@ -887,37 +831,27 @@
   </div></section>
 
   <section class="slide"><div>
-    <ul>
-      <li><b>M, m</b> - moveto</li>
-      <li><b>Z</b> - closepath</li>
-    </ul>
-    <ul class="next">
-      <li><b>L, l</b> - lineto</li>
-      <li><b>H, h</b> - horizontal lineto</li>
-      <li><b>V, v</b> - vertical lineto</li>
-    </ul>
-  </div></section>
+    <div class="column column--left">
+      <ul>
+        <li><b>M, m</b> - moveto</li>
+        <li><b>Z</b> - closepath</li>
+      </ul>
+      <ul class="next">
+        <li><b>L, l</b> - lineto</li>
+        <li><b>H, h</b> - horizontal lineto</li>
+        <li><b>V, v</b> - vertical lineto</li>
+      </ul>
+    </div>
+    <div class="column column--right">
+      <ul class="next">
+        <li><b>C, c</b> - curveto</li>
+        <li><b>S, s</b> - smooth curveto</li>
+        <li><b>Q, q</b> - quadratic Bézier curveto</li>
+        <li><b>T, t</b> - smooth quadratic Bézier curveto</li>
+        <li><b>A, a</b> - elliptical arc</li>
+      </ul>
+    </div>
 
-  <section class="slide"><div>
-    <ul>
-      <li><b>C, c</b> - curveto</li>
-      <li><b>S, s</b> - smooth curveto</li>
-      <li><b>Q, q</b> - quadratic Bézier curveto</li>
-      <li><b>T, t</b> - smooth quadratic Bézier curveto</li>
-      <li><b>A, a</b> - elliptical arc</li>
-    </ul>
-  </div></section>
-
-  <section class="slide"><div>
-    <!-- Прямоугольники? -->
-    <div class="demo demo--path-circ demo--live">
-      <div class="demo__content">
-      <textarea class="demo__textfield demo__code"><svg  viewbox="0 0 340 270" height="270">
-  <path d="M 170,10 C 0,10 0,260 170,260
-           M 170,10 C 340,10 340,260 170,260"
-    stroke="orange" stroke-width="5" fill="gold" />
-</svg></textarea>
-    </div></div>
   </div></section>
 
   <section class="slide"><div>
@@ -931,7 +865,6 @@
            M 20,20 L 120,250"/>
 </svg></textarea>
     </div></div>
-
   </div></section>
 
   <section class="slide"><div>
@@ -947,13 +880,27 @@
   </div></section>
 
   <section class="slide"><div>
+    <!-- Прямоугольники? -->
+    <div class="demo demo--path-circ demo--live">
+      <div class="demo__content">
+      <textarea class="demo__textfield demo__code"><svg  viewbox="0 0 340 270" height="270">
+  <path d="M 170,10 C 0,10 0,260 170,260
+           M 170,10 C 340,10 340,260 170,260"
+    stroke="orange" stroke-width="5" fill="gold" />
+</svg></textarea>
+    </div></div>
+  </div></section>
+
+
+
+  <section class="slide"><div>
     <!-- Живое демо
     показать прямоугольники?
     Арка, подумать! -->
     <div class="demo demo--path demo--live">
       <div class="demo__content">
       <textarea class="demo__textfield demo__code"><svg height="270" viewbox="0 0 200 140">
-  <path d="M 10,30 A 30,31 0 0 0 190,30 Z"
+  <path d="M 10,30 A 20,31 320 0 0 190,30 Z"
         stroke="purple" stroke-width="3" fill="violet"/>
 </svg></textarea>
     </div></div>
@@ -964,14 +911,14 @@
   </div></section>
 
   <section class="slide"><div>
-      <h2 class="free-fly">Заливки</h2>
+      <h2 class="free-fly">fill</h2>
   </div></section>
 
   <section class="slide slide--fillingdemo"><div>
     <div class="demo demo--editproperty">
       <div class="demo__content">
-        <textarea class="demo__code">fill="hsl(50, 100%, 50%)"</textarea>
-      </div>
+        <pre><code>fill="hsl(50, 100%, 50%)"</code></pre>
+        </div>
       <div class="demo__view">
         <svg>
           <rect width="100%" height="100%" fill="hsl(50, 100%, 50%)" class="demo__live-edit"/>
@@ -1004,6 +951,10 @@
     </div>
   </div></section>
 
+  <section class="slide"><div>
+      <h2 class="free-fly">fill-opacity</h2>
+  </div></section>
+
   <section class="slide slide--fillingdemo"><div>
     <h2 class="lower-level">Всё видно!</h2>
 
@@ -1021,6 +972,10 @@
         </svg>
       </div>
     </div>
+  </div></section>
+
+  <section class="slide"><div>
+      <h2 class="free-fly">fill-rule</h2>
   </div></section>
 
   <section class="slide"><div>
@@ -1085,23 +1040,6 @@
   </div></section>
 
   <section class="slide slide--fillingdemo"><div>
-    <pre class="js-toggle-code"><code>&lt;radialGradient id="gr-radial-soft"
-      cx="50%" cy="50%" r="70%">
-      &lt;stop stop-color="hsl(200,100%,40%)" offset="0"/>
-      &lt;stop stop-color="hsl(45,100%,75%)" offset="50%"/>
-      &lt;stop stop-color="hsl(350,100%,45%)" offset="100%"/>
-  &lt;/radialGradient></code></pre>
-
-    <div class="demo">
-      <div class="demo__view">
-        <svg>
-          <rect width="100%" height="100%" fill="url(#gr-radial-soft)"/>
-        </svg>
-      </div>
-    </div>
-  </div></section>
-
-  <section class="slide slide--fillingdemo"><div>
     <pre class="js-toggle-code"><code>&lt;radialGradient id="gr-radial-stripes-repeat"
       cx="50%" cy="50%" r="10%"
       gradientUnits="userSpaceOnUse" spreadMethod="repeat">
@@ -1123,6 +1061,23 @@
   </div></section>
 
   <section class="slide slide--fillingdemo"><div>
+    <pre class="js-toggle-code"><code>&lt;radialGradient id="gr-radial-soft"
+      cx="50%" cy="50%" r="70%">
+      &lt;stop stop-color="hsl(200,100%,40%)" offset="0"/>
+      &lt;stop stop-color="hsl(45,100%,75%)" offset="50%"/>
+      &lt;stop stop-color="hsl(350,100%,45%)" offset="100%"/>
+  &lt;/radialGradient></code></pre>
+
+    <div class="demo">
+      <div class="demo__view">
+        <svg>
+          <rect width="100%" height="100%" fill="url(#gr-radial-soft)"/>
+        </svg>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="slide slide--fillingdemo"><div>
     <pre class="js-toggle-code"><code>&lt;radialGradient id="gr-radial-soft-fxy"
       fx="90%" fy="90%">
       ...
@@ -1137,31 +1092,12 @@
     </div>
   </div></section>
 
-  <section class="slide slide--fillingdemo"><div>
-    <pre class="js-toggle-code"><code>&lt;radialGradient id="gr-radial-soft-repeat"
-      spreadMethod="repeat">
-      ...
-&lt;/radialGradient></code></pre>
-
-    <div class="demo">
-      <div class="demo__view">
-        <svg>
-          <rect width="100%" height="100%" fill="url(#gr-radial-soft-repeat)"/>
-        </svg>
-      </div>
-    </div>
-  </div></section>
-
-  <section class="slide"><div>
-    <ul>
-      <li>Не работают в FF, нужны ли тут?</li>
-      <li><a href="./assets/demo/gr-reflect.svg">spreadMethod="reflect"</a></li>
-      <li><a href="./assets/demo/gr-reflect-fy.svg">spreadMethod="reflect" fy="0%"</a></li>
-    </ul>
-  </div></section>
-
   <section class="slide"><div>
       <h2 class="free-fly">Обводки</h2>
+  </div></section>
+
+  <section class="slide"><div>
+      <h2 class="free-fly">stroke, stroke-width</h2>
   </div></section>
 
   <section class="slide slide--fillingdemo slide--strokewidth"><div>
@@ -1313,7 +1249,7 @@
     </div>
   </div></section>
 
-  <!-- <section class="slide"><div>
+  <section class="slide"><div>
     <div class="demo demo--dasharray">
       <ul>
         <li>
@@ -1341,21 +1277,18 @@
         </li>
       </ul>
     </div>
-  </div></section> -->
+  </div></section>
 
   <section class="slide slide--fillingdemo"><div>
       <div class="demo demo--dashoffset demo--editproperty">
         <div class="demo__content">
-          <textarea class="demo__code demo__code--1  next" data-dest="demo__live-edit--1">stroke-dashoffset="-33%"</textarea>
-
-          <textarea class="demo__code demo__code--2  next" data-dest="demo__live-edit--2">stroke-dashoffset="-177"</textarea>
+          <textarea class="demo__code demo__code--1" data-dest="demo__live-edit--1">stroke-dashoffset="-33%"</textarea>
         </div>
         <div class="demo__view">
           <svg viewbox="0 0 270 270">
             <g class="g-circles" fill="none" stroke-width="60" stroke-dasharray="26% 90%" transform="translate(20,10) scale(.85) rotate(70 135 135)">
             <use xlink:href="#s-dashoffset" stroke="crimson"/>
-            <use xlink:href="#s-dashoffset" stroke="orangered" stroke-dashoffset="-33%" class="demo__live-edit demo__live-edit--1"/>
-            <use xlink:href="#s-dashoffset" stroke="gold" stroke-dashoffset="-177" class="demo__live-edit demo__live-edit--2"/>
+            <use xlink:href="#s-dashoffset" stroke="gold" stroke-dashoffset="-33%" class="demo__live-edit demo__live-edit--1"/>
           </g></svg>
         </div>
       </div>
@@ -1394,42 +1327,13 @@
       <h2 class="free-fly">dasharray + dashoffset</h2>
   </div></section>
 
-  <section class="slide slide--fillingdemo bg--dark"><div>
-    <div class="demo demo--dashofset-anim">
-      <div class="demo__view">
-        <svg viewbox="0 0 240 240">
-          <g transform="scale(.8) translate(30,14)">
-            <g class="g-circles" fill="gold" stroke-width="30"
-            transform="translate(24 24) scale(.8)">
-                <circle r="60" cx="120" cy="120" stroke="crimson" />
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  </div></section>
 
   <section class="slide slide--fillingdemo bg--dark"><div>
     <div class="demo demo--dashofset-anim">
       <div class="demo__view">
         <svg viewbox="0 0 240 240">
           <g transform="scale(.8) translate(30,14)">
-            <g class="g-circles" fill="gold" stroke-width="30" stroke-dasharray="8%"
-            transform="translate(24 24) scale(.8)">
-                <circle r="60" cx="120" cy="120" stroke="crimson" />
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  </div></section>
-
-  <section class="slide slide--fillingdemo bg--dark"><div>
-    <div class="demo demo--dashofset-anim">
-      <div class="demo__view">
-        <svg viewbox="0 0 240 240">
-          <g transform="scale(.8) translate(30,14)">
-            <g class="g-circles" fill="gold" stroke-width="100" stroke-dasharray="8%"
+            <g class="g-circles" fill="none" stroke-width="100" stroke-dasharray="8%"
             transform="translate(24 24) scale(.8)">
                 <circle r="60" cx="120" cy="120" stroke="crimson" />
             </g>
@@ -2315,7 +2219,7 @@
   </div></section>
 
   <section class="slide"><div>
-    <h2>Поддержка</h2>
+    <h2>Поддержка SVG-масок</h2>
       <dl class="browsers">
           <dd class="browser chrome"></dd>
           <dd class="browser opera-13"></dd>
