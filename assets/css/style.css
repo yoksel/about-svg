@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Ubuntu Condensed';
   font-style: normal;
@@ -389,7 +388,7 @@ PRE:before {
 /*16px*/
 .wrapper--icons-16-64 {
   /*width: 580px;*/
-  margin: 0;
+  margin: -2.2em 0 0;
 }
 .wrapper--icons-16-64 .icons {
   margin-bottom: 1.6rem;
@@ -397,7 +396,6 @@ PRE:before {
   text-align: center;
 }
 .wrapper--icons-16-64 .icons:before {
-  /*content: attr(data-size);*/
   display: inline-block;
   width: 72px;
   line-height: 1.5em;
@@ -421,9 +419,10 @@ PRE:before {
 }
 .wrapper--icons-16-64 .icon {
   display: inline-block;
-  width: 1.32em;
+  width: 1.02em;
+  /* $iconsize-unit */
   height: 1em;
-  margin: 0 -.1em;
+  margin: 0 0 0 1.6rem;
   background: url() 0 0 no-repeat;
   background-image: url(../../assets/img/svg/sprite-showsizes.svg);
   -webkit-background-size: auto 100%;
@@ -434,12 +433,21 @@ PRE:before {
 .wrapper--icons-16-64 .icon:before {
   content: none;
 }
+.wrapper--icons-16-64 .icon:first-child {
+  margin: 0;
+}
+.wrapper--icons-16-64 .icon--xl {
+  font-size: 10.56em;
+}
+.wrapper--icons-16-64 .icon--xxl {
+  font-size: 21.12em;
+}
 .wrapper--icons-16-64 .icon--cloud {
   display: none;
   background-position: -1.5em 0;
 }
 .wrapper--icons-16-64 .icon--star {
-  background-position: -3em 0;
+  background-position: -2.99em 0;
 }
 .wrapper--icons-16-64 .icon--airplane {
   background-position: -4.5em 0;
@@ -514,8 +522,30 @@ PRE:before {
   opacity: 0;
 }
 
-/* Cat
+/* Demo Cat
 ------------------------- */
+.demo--cat {
+  text-align: center;
+}
+
+:target .obj-cat {
+  -webkit-animation: 7s cat-width infinite linear alternate;
+  animation: 7s cat-width infinite linear alternate;
+}
+
+@-webkit-keyframes cat-width {
+  100% {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@keyframes cat-width {
+  100% {
+    width: 400px;
+    height: 400px;
+  }
+}
 .preview--cat {
   display: table-cell;
   width: 864px;
@@ -528,6 +558,32 @@ PRE:before {
   width: auto;
 }
 
+/* Demo Clowns Car
+------------------------- */
+.demo--clownscar {
+  text-align: center;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+:target .obj-clownscar {
+  height: 540px;
+  overflow: hidden;
+  -webkit-animation: 15s clownscar-width infinite linear alternate;
+  animation: 15s clownscar-width infinite linear alternate;
+}
+
+@-webkit-keyframes clownscar-width {
+  100% {
+    width: 500px;
+  }
+}
+
+@keyframes clownscar-width {
+  100% {
+    width: 500px;
+  }
+}
 /* Demo Filling
 ------------------------- */
 .slide--fillingdemo PRE,
@@ -555,7 +611,7 @@ PRE:before {
   bottom: 0;
   left: 0;
 }
-.slide--fillingdemo svg {
+.slide--fillingdemo svg, .slide--fillingdemo object {
   width: 100%;
   height: 100%;
   /*border: 1px solid green;*/
@@ -950,21 +1006,23 @@ PRE:before {
 
 .demo--stroke-dasharr-anim path {
   fill: none;
-  stroke-width: 2;
-  stroke-dasharray: 530;
+  stroke-width: 1;
+  stroke-dasharray: 0 530;
+}
+:target .demo--stroke-dasharr-anim path {
   -webkit-animation: dasharray 8s infinite alternate;
   animation: dasharray 8s infinite alternate;
 }
 
 @-webkit-keyframes dasharray {
   100% {
-    stroke-dasharray: 0 530;
+    stroke-dasharray: 530 0;
   }
 }
 
 @keyframes dasharray {
   100% {
-    stroke-dasharray: 0 530;
+    stroke-dasharray: 530 0;
   }
 }
 /* Demo stroke-dasharray + stroke-offset Animation
@@ -978,6 +1036,10 @@ PRE:before {
   -webkit-transform-origin: 120px 120px;
   -ms-transform-origin: 120px 120px;
   transform-origin: 120px 120px;
+}
+:target .demo--dashofset-anim.demo--run circle {
+  -webkit-animation: rotation 6s infinite alternate;
+  animation: rotation 6s infinite alternate;
 }
 .demo--dashofset-anim .g-circles circle:nth-child(2) {
   -webkit-animation-delay: 0.5s;
@@ -1035,10 +1097,6 @@ PRE:before {
   -webkit-animation-delay: 3.75s;
   animation-delay: 3.75s;
 }
-.demo--dashofset-anim.demo--run circle {
-  -webkit-animation: rotation 6s infinite alternate;
-  animation: rotation 6s infinite alternate;
-}
 
 @-webkit-keyframes rotation {
   100% {
@@ -1076,6 +1134,8 @@ PRE:before {
   stroke: white;
   stroke-width: 2;
   stroke-dasharray: 4;
+}
+:target .star--outline {
   -webkit-animation: stardashoffset 1s infinite linear;
   animation: stardashoffset 1s infinite linear;
 }
@@ -1084,7 +1144,6 @@ PRE:before {
   -webkit-transform-origin: 97px 72px;
   -ms-transform-origin: 97px 72px;
   transform-origin: 97px 72px;
-  /*animation:  starmove 3s infinite linear;*/
 }
 .group--stars use:nth-child(2) {
   -webkit-transform: scale(0.59184);
@@ -1107,6 +1166,8 @@ PRE:before {
   -webkit-transform-origin: 512px 320px;
   -ms-transform-origin: 512px 320px;
   transform-origin: 512px 320px;
+}
+:target .c-lights {
   -webkit-animation: rotation 20s infinite linear;
   animation: rotation 20s infinite linear;
 }
