@@ -1,4 +1,4 @@
-<svg viewBox="0 0 610 583" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg viewBox="0 0 610 583" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>cat</title>
     <style>
         #tail,
@@ -9,7 +9,7 @@
             transition: all .7s;
             }
         #hair,
-        #dots, 
+        #dots,
         #face {
           stroke-opacity: 0;
           fill-opacity: 0;
@@ -23,21 +23,21 @@
         @media (min-width: 400px) {
             #mouth {
                 stroke-opacity: 1;
-                }  
+                }
             }
 
         @media (min-width: 500px) {
             #face {
                 stroke-opacity: 1;
                 fill-opacity: 1;
-                }  
+                }
           }
 
         @media (min-width: 600px) {
             #hair {
                 stroke-opacity: 1;
                 fill-opacity: 1;
-                }  
+                }
             #dots {
               fill-opacity: 1;
               }
@@ -45,24 +45,25 @@
         @media (min-width: 700px) {
             #head {
                 stroke-opacity: 1;
-                }    
+                }
             }
-        @media (min-width: 900px) {
+        @media (min-width: 800px) {
             #forepaws {
                 stroke-opacity: 1;
-                }    
-            }        
-        @media (min-width: 950px) {
+                }
+            }
+        @media (min-width: 900px) {
             #body {
                 stroke-opacity: 1;
                 }
         }
-        @media (min-width: 970px) {
+        @media (min-width: 950px) {
             #tail {
                 stroke-opacity: 1;
                 }
-        }  
+        }
     </style>
+
     <g id="cat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(20,20) scale(.93)">
         <g id="cat" transform="translate(-12.000, 0.000)">
             <g id="tail" transform="translate(413.000, 151.000)" stroke="#000" stroke-width="8" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">

@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="60">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!--  width="300" height="60" -->
     <defs>
       <symbol id="s-path">
         <path d="M 50,30 250,30" stroke-width="60"/>
@@ -77,16 +78,8 @@
         <image xlink:href="./assets/img/parts/violet-flower-l.jpg" width="332" height="500" transform="translate(0,-30)"/>
       </symbol>
 
-      <symbol id="s-batik">
-        <image xlink:href="./assets/img/parts/batik.png" width="390" height="300"/>
-      </symbol>
-
-      <symbol id="s-rainbow-mosaic">
-        <image xlink:href="./assets/img/parts/rainbow-mosaic.png" width="800" height="600"/>
-      </symbol>
-
       <symbol id="s-mosaic-colored">
-        <image xlink:href="./assets/img/parts/mosaic-colored.png" width="800" height="600"/>
+        <rect width="100%" height="100%" fill="url(#pt-mosaic-colored)"/>
       </symbol>
 
       <symbol id="s-airballoon">

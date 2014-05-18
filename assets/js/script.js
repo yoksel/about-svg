@@ -2,19 +2,14 @@
 // -------------------------------
 
 $( "#svg-filters" ).load( "/assets/img/svg/filters.svg", function() {
-  // console.log( "Filters were loaded." );
 });
 $( "#svg-fills" ).load( "/assets/img/svg/fills.svg", function() {
-  // console.log( "Fills were loaded." );
 });
 $( "#svg-masks" ).load( "/assets/img/svg/masks.svg", function() {
-  // console.log( "Masks were loaded." );
 });
 $( "#svg-symbols" ).load( "/assets/img/svg/symbols.svg", function() {
-  // console.log( "Images were loaded." );
 });
 $( "#svg-images" ).load( "/assets/img/svg/svg-lib.svg", function() {
-  // console.log( "Images were loaded." );
 });
 
 
@@ -28,6 +23,16 @@ function removeBackground(elem){
     // $(elem).css("background","none");
     $(elem).parent().addClass("no-highlight");
 }
+
+// Redraw
+// -------------------------------
+// This need to force redraw of text in Firefox
+jQuery.fn.redraw = function() {
+    return this.hide(0, function() {
+        $(this).show();
+    });
+};
+
 
 function setAttr(propName, propValue, editedElem) {
 
@@ -46,7 +51,11 @@ function setAttr(propName, propValue, editedElem) {
         }
     else {
         $(editedElem).attr(propName,propValue);
-    }
+        if (propName == "fill" || propName == "stroke"){
+            $(editedElem).redraw();
+            }
+        }
+
 }
 
 $(".demo--live").each ( function(){
@@ -90,9 +99,6 @@ $(".demo__switch dd").each( function(){
 
         var svgDest = $(curSlideClass).find(changeDest);
 
-        console.log("svgDest");
-        console.log(svgDest);
-        //svgDest.attr(changeAttr,changeVal);
         setAttr(changeAttr, changeVal, svgDest);
 
         if (changeCodeDest){
@@ -100,12 +106,6 @@ $(".demo__switch dd").each( function(){
             codeDest.text(changeAttr + "=\"" + changeVal + "\"");
         }
 
-        // var svgElem = $(curSlideClass).find("svg");
-        // var svgElem_n = document.querySelector(".active svg");
-        // var svgViewbox = svgElem_n.getAttribute("viewBox"); //svg.attr("viewBox");
-        // var svgContent = svgElem.html();
-        // var demoCode = $(curSlideClass).find(".demo__code");
-        // demoCode.val("<svg viewbox='" + svgViewbox + "'>" + svgContent + "</svg>");
         });
     });
 

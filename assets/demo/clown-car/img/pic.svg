@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 532 800" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 532 800">
     <style>
        svg {
             background-size: content;
             background-repeat: no-repeat;
             transition: .3s;
             }
-        
+
         @media screen and (max-width: 150px) {
             svg {
-                background-image: url(http://img-fotki.yandex.ru/get/5806/yoksel.60/0_4f942_55fe039b_S.jpg);
+                background-image: url(pic-s.jpg);
             }
         }
         @media screen and (min-width: 151px) and (max-width: 300px) {
             svg {
-                background-image: url(http://img-fotki.yandex.ru/get/4810/yoksel.61/0_50249_59b6ce1a_M.jpg);
+                background-image: url(pic-m.jpg);
             }
         }
 
         @media screen and (min-width: 301px) and (max-width: 700px) {
             svg {
-                background-image: url(http://img-fotki.yandex.ru/get/5210/yoksel.60/0_4f938_36457937_L.jpg);
+                background-image: url(pic-l.jpg);
             }
         }
     </style>

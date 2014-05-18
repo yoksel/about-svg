@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 500">
+<svg xmlns="http://www.w3.org/2000/svg">
 
- <linearGradient id="gr-rainbow-stripes" x1="0" y1="0" x2="40%" y2="0%"
-  gradientUnits="userSpaceOnUse" >
+ <linearGradient id="gr-rainbow-stripes"
+    x1="0" y1="0" x2="200" y2="0%"
+    gradientUnits="userSpaceOnUse">
     <stop offset="0%" stop-color="crimson" /><stop offset="10%" stop-color="purple" />
     <stop offset="10%" stop-color="red" /><stop offset="20%" stop-color="crimson" />
     <stop offset="20%" stop-color="orangered" /><stop offset="30%" stop-color="red" />
@@ -29,9 +30,9 @@
   </linearGradient>
 
   <linearGradient id="gr-hot-cold-soft" x1="0" y1="0" x2="100%" y2="50%">
-      <stop stop-color="hsl(45,100%,65%)" offset="0"/>
-      <stop stop-color="hsl(320,100%,65%)" offset="50%"/>
-      <stop stop-color="hsl(200,100%,60%)" offset="100%"/>
+      <stop stop-color="hsl(45,100%,70%)" offset="0"/>
+      <stop stop-color="hsl(320,100%,55%)" offset="50%"/>
+      <stop stop-color="hsl(220,100%,40%)" offset="100%"/>
   </linearGradient>
 
   <linearGradient id="gr-simple" x1="0" y1="0" x2="100%" y2="50%">
@@ -187,15 +188,17 @@
     <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300">
   </pattern>
 
-  <pattern id="pt-mosaic-colored" width="400" height="400"
-             patternUnits="userSpaceOnUse">
-    <image xlink:href="./assets/img/parts/mosaic-colored.png" width="800" height="600"/>
+  <pattern id="pt-mosaic-colored" width="200" height="200"
+    viewbox="0 0 200 200"
+    patternUnits="userSpaceOnUse">
+    <image xlink:href="./assets/img/parts/mosaic-colored.png" width="200" height="200"/>
   </pattern>
+  <!-- patternUnits="userSpaceOnUse" -->
 
   <pattern id="pt-colored-circles" width="160" height="160"
     viewbox="0 0 160 160"
-             patternUnits="userSpaceOnUse">
-      <rect width="100%" height="100%" fill="black"/>
+    patternUnits="userSpaceOnUse">
+      <rect width="100%" height="150%" fill="black"/>
       <g stroke-width="8" fill="none">
         <g>
           <circle r="25" cx="40" cy="40" stroke="url(#gr-radial-soft-fxy)"/>
@@ -225,7 +228,9 @@
     width="199" height="300" viewbox="0 0 199 300">
     <image xlink:href="../../assets/img/parts/flower-m.jpg" width="199" height="300" />
   </pattern>
+
   <!--  -->
+
   <pattern id="pt-text" patternunits="userSpaceOnUse" width="350" height="112">
     <text x="0" y="0">
       <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies.

@@ -12,7 +12,7 @@
 
     <clippath id="clip-heart-smil">
       <path  d="m99.19002,43.23778c40.05069,-100.72627 196.97231,0 0,129.5052c-196.97233,-129.5052 -40.05096,-230.23147 0,-129.5052z" fill="#FF0000">
-          <animateTransform attributeName="transform"
+          <!-- <animateTransform attributeName="transform"
             type="scale"
             values="1,1;.7,.7; 1,1"
             begin="0s" dur=".8s"
@@ -23,7 +23,7 @@
             values="0,0; 40,35; 0,0"
             begin="0s" dur=".8s"
             repeatCount="indefinite"
-                  additive="sum"/>
+                  additive="sum"/> -->
          </path>
     </clippath>
     <!--  -->
