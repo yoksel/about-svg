@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Ubuntu Condensed';
   font-style: normal;
@@ -18,25 +19,25 @@
 
 /* map-keys($map-headers) */
 .slide h2 {
-  margin: 0 0 28.8px;
+  margin: 0 0 38.4px;
   font-size: 57.6px;
 }
 
 /* map-keys($map-headers) */
 .slide h3 {
-  margin: 0 0 27.6px;
+  margin: 0 0 36.8px;
   font-size: 55.2px;
 }
 
 /* map-keys($map-headers) */
 .slide h4 {
-  margin: 0 0 20.4px;
+  margin: 0 0 27.2px;
   font-size: 40.8px;
 }
 
 /* map-keys($map-headers) */
 .slide h5 {
-  margin: 0 0 14.4px;
+  margin: 0 0 19.2px;
   font-size: 28.8px;
 }
 
@@ -79,6 +80,10 @@ svg {
   overflow: visible;
 }
 
+.svg--ovh {
+  overflow: hidden;
+}
+
 use {
   -webkit-transition: .5s;
   transition: .5s;
@@ -87,9 +92,25 @@ use {
 
 .hidden-svg-defs {
   position: absolute;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+}
+
+.svg-defs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.svg-defs svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*border: 1px solid green;*/
 }
 
 /* Slides
@@ -101,10 +122,14 @@ use {
   left: 0;
   width: auto;
   height: auto;
-  padding: 80px 80px 120px;
+  padding: 60px 80px;
 }
 .slide:after {
-  bottom: 30px;
+  right: 1em;
+  bottom: 1em;
+}
+.full .slide:after {
+  left: auto;
 }
 
 .slide--imgcenter > DIV {
@@ -158,6 +183,10 @@ use {
   text-align: center;
 }
 
+.slide--gradients-bugs IMG:first-of-type {
+  margin-right: 55px;
+}
+
 PRE {
   position: relative;
 }
@@ -187,7 +216,7 @@ PRE:before {
 }
 
 #Cover h2 {
-  margin: 30px 0 0;
+  margin: 40px 0 0;
   color: #FFF;
   text-align: center;
   font-size: 70px;
@@ -211,20 +240,12 @@ PRE:before {
 }
 
 #cover-text {
-  margin-top: 50px;
-  width: 810px;
+  margin-top: 70px;
+  width: 100%;
   height: 290px;
   font-family: 'Arial Black';
-  font-size: 14.5em;
+  font-size: 15.5em;
   letter-spacing: -0.05em;
-}
-
-.cover-text__fill {
-  /*fill: url(..#pt-rainbow-stripes);*/
-  /*fill: url(/#gr-rainbow-stripes);*/
-  /*filter: url(/#fl-shadow);*/
-  /*stroke: orange;
-  stroke-width: 5;*/
 }
 
 /* Popup
@@ -289,25 +310,6 @@ PRE:before {
   color: #FFF;
 }
 
-.bg--gray-wood {
-  background: #444444 url(/assets/img/parts/dark-wood.jpg);
-}
-.bg--gray-wood H2 {
-  color: #FFF;
-}
-
-.bg--concrete {
-  background: #dddddd url(/assets/img/parts/concrete.png);
-}
-
-.bg--dark-triangles {
-  /*background: #222 url(/assets/img/parts/triangles.png);*/
-  background: #050505 url(/assets/img/parts/swirl.png);
-}
-.bg--dark-triangles H2 {
-  color: #FFF;
-}
-
 /* Columns
 ------------------------- */
 .column {
@@ -320,75 +322,9 @@ PRE:before {
   float: right;
 }
 
-.ui-resizable {
-  position: relative;
-  border: 1px solid transparent;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.ui-resizable:hover {
-  border-color: #DDD;
-}
-
-.ui-resizable-handle {
-  position: absolute;
-  display: block;
-  font-size: 0.1px;
-}
-
-.ui-resizable-s {
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 7px;
-  cursor: s-resize;
-}
-
-.ui-resizable-e {
-  top: 0;
-  right: -5px;
-  width: 7px;
-  height: 100%;
-  cursor: e-resize;
-}
-
-.ui-resizable-se {
-  right: 1px;
-  bottom: 1px;
-  width: 35px;
-  height: 35px;
-  cursor: se-resize;
-}
-.ui-resizable-se:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border: 0 solid;
-  border-color: transparent;
-  border-width: 0 0 35px 35px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.ui-resizable:hover .ui-resizable-se:before {
-  border-color: #DDD  transparent;
-}
-
-/* Examples
----------------------- */
-.resizable--car,
-.resizable--cat {
-  min-height: 35px;
-  max-height: 310px;
-  min-width: 35px;
-  max-width: 100%;
-}
-
 /*16px*/
 .wrapper--icons-16-64 {
-  /*width: 580px;*/
-  margin: -2.2em 0 0;
+  margin: -1em 0 0;
 }
 .wrapper--icons-16-64 .icons {
   margin-bottom: 1.6rem;
@@ -423,8 +359,7 @@ PRE:before {
   /* $iconsize-unit */
   height: 1em;
   margin: 0 0 0 1.6rem;
-  background: url() 0 0 no-repeat;
-  background-image: url(../../assets/img/svg/sprite-showsizes.svg);
+  background: url(../../assets/img/svg/sprite-showsizes.svg) 0 0 no-repeat;
   -webkit-background-size: auto 100%;
   background-size: auto 100%;
   vertical-align: middle;
@@ -447,7 +382,7 @@ PRE:before {
   background-position: -1.5em 0;
 }
 .wrapper--icons-16-64 .icon--star {
-  background-position: -2.99em 0;
+  background-position: -2.99em -.01em;
 }
 .wrapper--icons-16-64 .icon--airplane {
   background-position: -4.5em 0;
@@ -528,7 +463,22 @@ PRE:before {
   text-align: center;
 }
 
-:target .obj-cat {
+:target .resize-cat {
+  /*height: auto;
+  width: 100%;*/
+  -webkit-backface-visibility: hidden;
+  /*height: auto;
+  width: 100%;*/
+  -ms-backface-visibility: hidden;
+  /*height: auto;
+  width: 100%;*/
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-animation: 7s cat-width infinite linear alternate;
   animation: 7s cat-width infinite linear alternate;
 }
@@ -546,29 +496,25 @@ PRE:before {
     height: 400px;
   }
 }
-.preview--cat {
-  display: table-cell;
-  width: 864px;
-  height: 440px;
-  text-align: center;
-  vertical-align: middle;
-}
-.preview--cat IMG {
-  max-height: 100%;
-  width: auto;
-}
-
 /* Demo Clowns Car
 ------------------------- */
 .demo--clownscar {
   text-align: center;
   min-height: 100%;
-  overflow: hidden;
 }
 
 :target .obj-clownscar {
-  height: 540px;
-  overflow: hidden;
+  height: 620px;
+  border: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-animation: 15s clownscar-width infinite linear alternate;
   animation: 15s clownscar-width infinite linear alternate;
 }
@@ -873,9 +819,13 @@ PRE:before {
 /* Demo Sizes
 ------------------------- */
 .demo--sizes .demo__view {
-  max-height: 380px;
+  height: 380px;
+  /*border: 3px solid green;*/
 }
 .demo--sizes svg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   border: 2px dashed orangered;
 }
 
@@ -959,7 +909,6 @@ PRE:before {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
 }
 .demo--dashoffset .demo__code {
   position: absolute;
@@ -984,7 +933,6 @@ PRE:before {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
 }
 .demo--stroke-opacity .demo__code {
   position: absolute;
@@ -999,30 +947,31 @@ PRE:before {
 
 /* Demo stroke-dasharray Animation
 ------------------------- */
-.pre--demo-dasharray code:nth-child(3),
-.pre--demo-dasharray code:nth-child(8) {
+.pre--demo-dasharray code:nth-child(4),
+.pre--demo-dasharray code:nth-child(9) {
   background: palegoldenrod;
 }
 
 .demo--stroke-dasharr-anim path {
   fill: none;
   stroke-width: 1;
-  stroke-dasharray: 0 530;
+  stroke-dasharray: 550;
+  stroke-dashoffset: 570;
 }
 :target .demo--stroke-dasharr-anim path {
-  -webkit-animation: dasharray 8s infinite alternate;
-  animation: dasharray 8s infinite alternate;
+  -webkit-animation: dashoffset 8s linear infinite alternate;
+  animation: dashoffset 8s linear infinite alternate;
 }
 
-@-webkit-keyframes dasharray {
+@-webkit-keyframes dashoffset {
   100% {
-    stroke-dasharray: 530 0;
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes dasharray {
+@keyframes dashoffset {
   100% {
-    stroke-dasharray: 530 0;
+    stroke-dashoffset: 0;
   }
 }
 /* Demo stroke-dasharray + stroke-offset Animation
@@ -1118,7 +1067,6 @@ PRE:before {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   background: lightseagreen;
   color: lightseagreen;
 }
@@ -1127,17 +1075,10 @@ PRE:before {
   -webkit-transform-origin: 97px 96px;
   -ms-transform-origin: 97px 96px;
   transform-origin: 97px 96px;
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  fill: none;
-  stroke: white;
-  stroke-width: 2;
-  stroke-dasharray: 4;
-}
-:target .star--outline {
-  -webkit-animation: stardashoffset 1s infinite linear;
-  animation: stardashoffset 1s infinite linear;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  fill: white;
 }
 
 .group--stars use {
@@ -1480,6 +1421,9 @@ PRE:before {
 .demo--mask .demo__codepart {
   height: 146.664px;
 }
+.demo--mask svg {
+  overflow: hidden;
+}
 
 .clip-text {
   font: bold italic 6.5em/1 Georgia;
@@ -1490,12 +1434,11 @@ PRE:before {
 }
 
 .path-heart {
-  /*transform-origin: 150px 130px;*/
   -webkit-transform-origin: 87px 90px;
-  /*transform-origin: 150px 130px;*/
   -ms-transform-origin: 87px 90px;
-  /*transform-origin: 150px 130px;*/
   transform-origin: 87px 90px;
+}
+:target .path-heart {
   -webkit-animation: scale .7s infinite;
   animation: scale .7s infinite;
 }
@@ -1534,7 +1477,7 @@ PRE:before {
 
 /* Demo Nth-child
 ------------------------- */
-.demo--nth-child path {
+:target .demo--nth-child path {
   -webkit-animation: nthchild-dasharray 5s infinite alternate;
   animation: nthchild-dasharray 5s infinite alternate;
 }
@@ -1605,6 +1548,8 @@ PRE:before {
   height: 400px;
   margin-top: 170px;
   vertical-align: middle;
+}
+:target .demo--colorful-icon svg {
   -webkit-animation: ghost 3s linear infinite;
   animation: ghost 3s linear infinite;
 }
@@ -1909,12 +1854,12 @@ PRE:before {
   margin-right: 40px;
 }
 
-.list--problems DT {
-  width: 200px;
+.list--problems LI {
+  margin-bottom: 30px;
 }
 
 .list--support-stacks DT {
-  width: 327px;
+  width: 332px;
 }
 
 .list--cssmasks DL {
@@ -2005,7 +1950,7 @@ PRE:before {
   background-position: 0 -320px;
 }
 .opera-13:after {
-  content: "13";
+  content: "13+";
 }
 
 .safari {
@@ -2022,3 +1967,28 @@ PRE:before {
 .opera-mini:before {
   background-position: -150px 0;
   }*/
+.page--svg-bugs .l-wrapper {
+  position: relative;
+  min-width: 400px;
+  max-width: 800px;
+  margin: 50px auto;
+  padding-left: 100px;
+  border: 1px solid;
+  font: 16px/1.5 'Open Sans',sans-serif;
+}
+.page--svg-bugs .browser {
+  position: absolute;
+  left: 10px;
+}
+.page--svg-bugs .list {
+  min-height: 60px;
+  margin-bottom: 2em;
+}
+.page--svg-bugs .browser-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.page--svg-bugs .text--no-support {
+  font-style: italic;
+  color: tomato;
+}
