@@ -79,6 +79,14 @@ $(".demo--live").each ( function(){
 
 });
 
+
+// Resize Objects
+// -------------------------------
+
+$(".demo__slider").change(function(){
+  $(".resize-cat").css("width",$(this).val() + "%");
+});
+
 // Switch Demos
 // -------------------------------
 var switchCheckedClass = "switch--checked";

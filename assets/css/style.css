@@ -123,10 +123,12 @@ use {
   width: auto;
   height: auto;
   padding: 60px 80px;
+  /*border: 2px solid red;*/
 }
 .slide:after {
   right: 1em;
   bottom: 1em;
+  /*border: 2px solid green;*/
 }
 .full .slide:after {
   left: auto;
@@ -441,6 +443,9 @@ PRE:before {
 
 /* Highlight
 ------------------------- */
+.demo__content {
+  /*border: 3px solid orange;*/
+}
 .demo__content:before {
   content: "";
   display: block;
@@ -462,38 +467,39 @@ PRE:before {
 .demo--cat {
   text-align: center;
 }
+.demo--cat .demo__content {
+  position: absolute !important;
+  bottom: 1.5em;
+  left: 0;
+  right: 0;
+}
+.demo--cat .demo__content:before {
+  content: none;
+}
+.demo--cat .demo__slider {
+  width: 300px;
+  margin: auto;
+}
 
 :target .resize-cat {
+  border: 2px solid silver;
+  height: 550px;
   /*height: auto;
   width: 100%;*/
-  -webkit-backface-visibility: hidden;
-  /*height: auto;
-  width: 100%;*/
-  -ms-backface-visibility: hidden;
-  /*height: auto;
-  width: 100%;*/
-  backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -ms-perspective: 1000;
-  perspective: 1000;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: 7s cat-width infinite linear alternate;
-  animation: 7s cat-width infinite linear alternate;
+  /*animation: 7s cat-width infinite linear alternate;*/
 }
 
 @-webkit-keyframes cat-width {
   100% {
     width: 400px;
-    height: 400px;
+    /*height: 400px;*/
   }
 }
 
 @keyframes cat-width {
   100% {
     width: 400px;
-    height: 400px;
+    /*height: 400px;*/
   }
 }
 /* Demo Clowns Car
@@ -503,7 +509,7 @@ PRE:before {
   min-height: 100%;
 }
 
-:target .obj-clownscar {
+.full :target .obj-clownscar {
   height: 620px;
   border: 1px solid transparent;
   -webkit-backface-visibility: hidden;
@@ -1976,16 +1982,24 @@ PRE:before {
   border: 1px solid;
   font: 16px/1.5 'Open Sans',sans-serif;
 }
+.page--svg-bugs .browser-list {
+  position: relative;
+  min-height: 60px;
+  margin: 2em 0 4em;
+}
 .page--svg-bugs .browser {
   position: absolute;
-  left: 10px;
-}
-.page--svg-bugs .list {
-  min-height: 60px;
-  margin-bottom: 2em;
+  left: -60px;
+  top: -1em;
 }
 .page--svg-bugs .browser-name {
   font-size: 20px;
+  font-weight: bold;
+}
+.page--svg-bugs .bugs-list__title {
+  display: inline-block;
+  padding: 0 5px;
+  background: skyblue;
   font-weight: bold;
 }
 .page--svg-bugs .text--no-support {
