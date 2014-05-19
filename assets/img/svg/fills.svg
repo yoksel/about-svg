@@ -224,11 +224,6 @@
       </g>
   </pattern>
 
-  <pattern id="pt-flower" patternunits="userSpaceOnUse"
-    width="199" height="300" viewbox="0 0 199 300">
-    <image xlink:href="../assets/img/parts/flower-m.jpg" width="199" height="300" />
-  </pattern>
-
   <!--  -->
 
   <pattern id="pt-text" patternunits="userSpaceOnUse" width="350" height="112">
