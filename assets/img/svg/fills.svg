@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1024px"
+  height="640px">
 
  <linearGradient id="gr-rainbow-stripes"
     x1="0" y1="0" x2="200" y2="0%"
@@ -30,9 +32,9 @@
   </linearGradient>
 
   <linearGradient id="gr-hot-cold-soft" x1="0" y1="0" x2="100%" y2="50%">
-      <stop stop-color="hsl(45,100%,70%)" offset="0"/>
-      <stop stop-color="hsl(320,100%,55%)" offset="50%"/>
-      <stop stop-color="hsl(220,100%,40%)" offset="100%"/>
+      <stop stop-color="hsl(45,100%,70%)" offset="10%"/>
+      <stop stop-color="hsl(320,100%,60%)" offset="50%"/>
+      <stop stop-color="hsl(220,100%,65%)" offset="100%"/>
   </linearGradient>
 
   <linearGradient id="gr-simple" x1="0" y1="0" x2="100%" y2="50%">
@@ -52,8 +54,8 @@
   </linearGradient>
 
   <linearGradient id="gr-gray-transp" x1="0" y1="0" x2="0" y2="100%">
-      <stop stop-color="rgba(0,0,0,.6)" class="color-1"/>
-      <stop stop-color="rgba(0,0,0,.2)" stop-opacity="0" offset="90" class="color-2"/>
+      <stop stop-color="black" stop-opacity=".5" class="color-1"/>
+      <stop stop-color="black" stop-opacity="0" offset="90" class="color-2"/>
   </linearGradient>
 
   <!--  -->

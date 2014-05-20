@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'Ubuntu Condensed';
   font-style: normal;
@@ -438,7 +437,14 @@ PRE:before {
 .demo__code {
   display: block;
   position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
   background: transparent;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 
 /* Highlight
@@ -462,31 +468,36 @@ PRE:before {
   opacity: 0;
 }
 
-/* Demo Cat
-------------------------- */
-.demo--cat {
+.demo--has-slider {
   text-align: center;
 }
-.demo--cat .demo__content {
+.demo--has-slider .demo__content {
   position: absolute !important;
   bottom: 1.5em;
   left: 0;
   right: 0;
 }
-.demo--cat .demo__content:before {
+.demo--has-slider .demo__content:before {
   content: none;
 }
-.demo--cat .demo__slider {
-  width: 200px;
+.demo--has-slider .demo__slider {
+  width: 350px;
+  margin: auto;
+}
+
+/* Demo Cat
+------------------------- */
+.demo--cat .demo__view {
+  width: 850px;
   margin: auto;
 }
 
 :target .resize-cat {
-  border: 2px solid silver;
-  height: 550px;
-  /*height: auto;
-  width: 100%;*/
-  /*animation: 7s cat-width infinite linear alternate;*/
+  border: 1px solid #CCC;
+  height: 500px;
+  margin-top: 1em;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 @-webkit-keyframes cat-width {
@@ -508,9 +519,13 @@ PRE:before {
   text-align: center;
   min-height: 100%;
 }
+.demo--clownscar .demo__view {
+  width: 850px;
+  height: 550px;
+  margin: 0 auto;
+}
 
-.full :target .obj-clownscar {
-  height: 620px;
+.full :target .resize-clownscar {
   border: 1px solid transparent;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -521,8 +536,7 @@ PRE:before {
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-animation: 15s clownscar-width infinite linear alternate;
-  animation: 15s clownscar-width infinite linear alternate;
+  /*animation: 15s clownscar-width infinite linear alternate;*/
 }
 
 @-webkit-keyframes clownscar-width {
@@ -586,13 +600,14 @@ PRE:before {
   margin: 0 0 45px;
   border: 0;
   outline: none;
-  line-height: 2;
+  line-height: 1.7;
   font-family: 'Anka Coder',monospace;
   font-size: 100%;
   -webkit-transition: .5s;
   transition: .5s;
-  background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);
+  /*background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);*/
   -webkit-background-size: 30px 30px;
+  /*background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);*/
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 99% center;
@@ -634,9 +649,10 @@ PRE:before {
   color: #000;
 }
 .demo--live .demo__code {
-  height: 161.3304px;
-  background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);
+  height: 164.6568px;
+  /*background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);*/
   -webkit-background-size: 30px 30px;
+  /*background-image: url(data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%3Cpath%20fill%3D%22steelblue%22%20d%3D%22M30.277%2C1.722C29.168%2C0.611%2C27.691%2C0%2C26.121%2C0c-1.569%2C0-3.045%2C0.61-4.154%2C1.72L4.295%2C19.291%0AC4.19%2C19.395%2C4.11%2C19.52%2C4.06%2C19.658l-4%2C11c-0.129%2C0.355-0.046%2C0.756%2C0.215%2C1.031C0.467%2C31.891%2C0.73%2C32%2C1%2C32%0Ac0.098%2C0%2C0.196-0.014%2C0.293-0.044l9.949-3.052c0.156-0.047%2C0.298-0.133%2C0.414-0.248l18.621-18.621C31.389%2C8.926%2C32%2C7.448%2C32%2C5.878%0AC31.999%2C4.309%2C31.389%2C2.832%2C30.277%2C1.722z%20M10.093%2C27.165l-3.724%2C1.144c-0.217-0.637-0.555-1.201-1.016-1.662%0Ac-0.401-0.4-0.866-0.709-1.356-0.961L5.7%2C21H8v2c0%2C0.553%2C0.447%2C1%2C1%2C1h1.765L10.093%2C27.165z%20M24.812%2C12.671L12.629%2C24.855%0Al0.35-1.647c0.062-0.296-0.012-0.603-0.202-0.837C12.587%2C22.136%2C12.302%2C22%2C12%2C22h-2v-2c0-0.552-0.448-1-1-1H7.423L19.316%2C7.175%0Al0.011%2C0.011c0.733-0.733%2C1.707-1.136%2C2.743-1.136c1.035%2C0%2C2.01%2C0.403%2C2.742%2C1.136c0.731%2C0.733%2C1.137%2C1.707%2C1.137%2C2.743%0AC25.949%2C10.965%2C25.546%2C11.938%2C24.812%2C12.671z%20M28.863%2C8.621L27.93%2C9.554c-0.09-1.429-0.683-2.761-1.703-3.782%0Ac-1.021-1.022-2.355-1.614-3.787-1.703l0.937-0.931l0.002-0.002C24.111%2C2.403%2C25.085%2C2%2C26.121%2C2s2.01%2C0.403%2C2.742%2C1.136%0AC29.596%2C3.869%2C30%2C4.843%2C30%2C5.878C30%2C6.915%2C29.598%2C7.889%2C28.863%2C8.621z%20M22.293%2C8.293l-10%2C10c-0.391%2C0.391-0.391%2C1.023%2C0%2C1.414%0AC12.488%2C19.902%2C12.744%2C20%2C13%2C20s0.511-0.098%2C0.707-0.293l10-10c0.391-0.391%2C0.391-1.023%2C0-1.414S22.684%2C7.902%2C22.293%2C8.293z%22/%3E%0A%3C/svg%3E%0A);*/
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 99.5% top;
@@ -712,27 +728,27 @@ PRE:before {
   position: relative;
 }
 .demo--rect-1 .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 .demo--rect-2 .demo__content {
   position: relative;
 }
 .demo--rect-2 .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(87.9984px, palegoldenrod), color-stop(117.3312px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
-  background: linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(89.8128px, palegoldenrod), color-stop(119.7504px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
+  background: linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
   background-position: 0 .2em;
 }
 .demo--rect-3 .demo__content {
   position: relative;
 }
 .demo--rect-3 .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(87.9984px, palegoldenrod), color-stop(117.3312px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
-  background: linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(89.8128px, palegoldenrod), color-stop(119.7504px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
+  background: linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
   background-position: 0 .2em;
 }
 
@@ -742,21 +758,21 @@ PRE:before {
   position: relative;
 }
 .demo--circle .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 
 /* Demo Polygon
 ------------------------- */
-.demo--polygon .demo__code {
+.demo--polygon .demo__content {
   position: relative;
 }
-.demo--polygon .demo__code:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+.demo--polygon .demo__content:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 
@@ -764,9 +780,9 @@ PRE:before {
   position: relative;
 }
 .demo--polygon-star .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(58.6656px, palegoldenrod), color-stop(87.9984px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), -webkit-linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
   background-position: 0 .2em;
 }
 
@@ -776,9 +792,9 @@ PRE:before {
   position: relative;
 }
 .demo--line .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 
@@ -786,9 +802,9 @@ PRE:before {
   position: relative;
 }
 .demo--polyline .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(58.6656px, palegoldenrod), color-stop(87.9984px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), -webkit-linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
   background-position: 0 .2em;
 }
 
@@ -796,9 +812,9 @@ PRE:before {
   position: relative;
 }
 .demo--path .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 
@@ -806,9 +822,9 @@ PRE:before {
   position: relative;
 }
 .demo--path-abs-rel .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(87.9984px, palegoldenrod), color-stop(117.3312px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
-  background: linear-gradient(transparent 87.9984px, palegoldenrod 87.9984px, palegoldenrod 117.3312px, transparent 117.3312px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(89.8128px, palegoldenrod), color-stop(119.7504px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
+  background: linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px);
   background-position: 0 .2em;
 }
 
@@ -816,9 +832,9 @@ PRE:before {
   position: relative;
 }
 .demo--path-circ .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(58.6656px, palegoldenrod), color-stop(87.9984px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), -webkit-linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px), linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
   background-position: 0 .2em;
 }
 
@@ -871,9 +887,6 @@ PRE:before {
 }
 .demo--fill text {
   font: bold italic 60px/1 Georgia;
-}
-.demo--fill .demo__content {
-  height: 234.6624px;
 }
 
 /* Demo Stroke
@@ -945,9 +958,9 @@ PRE:before {
   top: 255px;
   right: 0;
   left: 0;
-  width: 300px;
+  width: 350px;
   margin: auto;
-  padding-right: 35px;
+  /*padding-right: 35px;*/
   text-align: center;
 }
 
@@ -1240,13 +1253,13 @@ PRE:before {
   position: relative;
 }
 .demo--g .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 .demo--g .demo__code {
-  height: 219.996px;
+  height: 224.532px;
 }
 
 /* Demo Use
@@ -1258,13 +1271,13 @@ PRE:before {
   position: relative;
 }
 .demo--use .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(175.9968px, palegoldenrod), color-stop(205.3296px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(205.3296px, palegoldenrod), color-stop(234.6624px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 175.9968px, palegoldenrod 175.9968px, palegoldenrod 205.3296px, transparent 205.3296px), -webkit-linear-gradient(transparent 205.3296px, palegoldenrod 205.3296px, palegoldenrod 234.6624px, transparent 234.6624px);
-  background: linear-gradient(transparent 175.9968px, palegoldenrod 175.9968px, palegoldenrod 205.3296px, transparent 205.3296px), linear-gradient(transparent 205.3296px, palegoldenrod 205.3296px, palegoldenrod 234.6624px, transparent 234.6624px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(179.6256px, palegoldenrod), color-stop(209.5632px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(209.5632px, palegoldenrod), color-stop(239.5008px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 179.6256px, palegoldenrod 179.6256px, palegoldenrod 209.5632px, transparent 209.5632px), -webkit-linear-gradient(transparent 209.5632px, palegoldenrod 209.5632px, palegoldenrod 239.5008px, transparent 239.5008px);
+  background: linear-gradient(transparent 179.6256px, palegoldenrod 179.6256px, palegoldenrod 209.5632px, transparent 209.5632px), linear-gradient(transparent 209.5632px, palegoldenrod 209.5632px, palegoldenrod 239.5008px, transparent 239.5008px);
   background-position: 0 .2em;
 }
 .demo--use .demo__code {
-  height: 307.9944px;
+  height: 314.3448px;
 }
 
 /* Demo Defs
@@ -1276,13 +1289,13 @@ PRE:before {
   position: relative;
 }
 .demo--defs .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.3328px, palegoldenrod), color-stop(58.6656px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
-  background: linear-gradient(transparent 29.3328px, palegoldenrod 29.3328px, palegoldenrod 58.6656px, transparent 58.6656px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
   background-position: 0 .2em;
 }
 .demo--defs .demo__code {
-  height: 337.3272px;
+  height: 344.2824px;
 }
 
 /* Demo Symbol
@@ -1294,16 +1307,16 @@ PRE:before {
   position: relative;
 }
 .demo--symbol .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(58.6656px, palegoldenrod), color-stop(87.9984px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
-  background: linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
   background-position: 0 .2em;
 }
 .demo--symbol .demo__code {
-  height: 337.3272px;
+  height: 344.2824px;
 }
 
-/* Demo pattern
+/* Demo Pattern
 ------------------------- */
 .demo--pattern .demo__view {
   height: 120px;
@@ -1312,13 +1325,13 @@ PRE:before {
   position: relative;
 }
 .demo--pattern .demo__content:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(58.6656px, palegoldenrod), color-stop(87.9984px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(263.9952px, palegoldenrod), color-stop(293.328px, palegoldenrod), to(transparent));
-  background: -webkit-linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px), -webkit-linear-gradient(transparent 263.9952px, palegoldenrod 263.9952px, palegoldenrod 293.328px, transparent 293.328px);
-  background: linear-gradient(transparent 58.6656px, palegoldenrod 58.6656px, palegoldenrod 87.9984px, transparent 87.9984px), linear-gradient(transparent 263.9952px, palegoldenrod 263.9952px, palegoldenrod 293.328px, transparent 293.328px);
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(269.4384px, palegoldenrod), color-stop(299.376px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px), -webkit-linear-gradient(transparent 269.4384px, palegoldenrod 269.4384px, palegoldenrod 299.376px, transparent 299.376px);
+  background: linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px), linear-gradient(transparent 269.4384px, palegoldenrod 269.4384px, palegoldenrod 299.376px, transparent 299.376px);
   background-position: 0 .2em;
 }
 .demo--pattern .demo__code {
-  height: 337.3272px;
+  height: 344.2824px;
 }
 
 #pt-text {
@@ -1345,7 +1358,7 @@ PRE:before {
   height: 150px;
 }
 .demo--transform .demo__code {
-  height: 234.6624px;
+  height: 239.5008px;
 }
 
 .rect-transform-before {
@@ -1357,6 +1370,34 @@ PRE:before {
 
 .rect-transform-after {
   fill-opacity: .7;
+}
+
+/* Demo title & desc
+------------------------- */
+.demo--tit-desc .demo__view {
+  height: 230px;
+}
+.demo--tit-desc .demo__content {
+  position: relative;
+}
+.demo--tit-desc .demo__content:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background-position: 0 .2em;
+}
+.demo--tit-desc .demo__code {
+  height: 224.532px;
+}
+
+.demo--tit-desc-elem .demo__content {
+  position: relative;
+}
+.demo--tit-desc-elem .demo__content:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(89.8128px, palegoldenrod), color-stop(119.7504px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(119.7504px, palegoldenrod), color-stop(149.688px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px), -webkit-linear-gradient(transparent 119.7504px, palegoldenrod 119.7504px, palegoldenrod 149.688px, transparent 149.688px);
+  background: linear-gradient(transparent 89.8128px, palegoldenrod 89.8128px, palegoldenrod 119.7504px, transparent 119.7504px), linear-gradient(transparent 119.7504px, palegoldenrod 119.7504px, palegoldenrod 149.688px, transparent 149.688px);
+  background-position: 0 .2em;
 }
 
 /* Demo stacks
@@ -1422,10 +1463,10 @@ PRE:before {
 /* Demo Masks
 ------------------------- */
 .demo--mask .demo__code {
-  height: 205.3296px;
+  height: 209.5632px;
 }
 .demo--mask .demo__codepart {
-  height: 146.664px;
+  height: 149.688px;
 }
 .demo--mask svg {
   overflow: hidden;
@@ -1806,7 +1847,7 @@ PRE:before {
   color: orangered;
 }
 .wrapper--icons-currentcolor .icon:nth-child(5n+2):hover {
-  color: crimson;
+  color: gold;
 }
 .wrapper--icons-currentcolor .icon:nth-child(5n+3) {
   color: gold;
@@ -1818,7 +1859,7 @@ PRE:before {
   color: yellowgreen;
 }
 .wrapper--icons-currentcolor .icon:nth-child(5n+4):hover {
-  color: gold;
+  color: crimson;
 }
 .wrapper--icons-currentcolor .icon:nth-child(5n) {
   color: skyblue;

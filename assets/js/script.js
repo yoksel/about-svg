@@ -83,8 +83,9 @@ $(".demo--live").each ( function(){
 // Resize Objects
 // -------------------------------
 
-$(".demo__slider").change(function(){
-  $(".resize-cat").css("width",$(this).val() + "%");
+$(".demo__slider").mousemove(function(){
+    var targetElem = $(this).attr("data-target");
+    $(targetElem).css("width",$(this).val() + "%");
 });
 
 // Switch Demos
