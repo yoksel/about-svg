@@ -37,17 +37,24 @@ jQuery.fn.redraw = function() {
 function setAttr(propName, propValue, editedElem) {
 
     if (propName == "viewbox"
+        || propName == "viewBox"
         || propName == "preserveaspectratio"
         || propName == "preserveAspectRatio"){
-       var svgElem = document.querySelector(".active svg");
+            var svgElem = document.querySelector(".active svg");
     }
 
-    if (propName == "viewbox"){
-        svgElem.setAttribute("viewBox", propValue);
+    console.log(propName);
+    if (propName == "viewbox"
+        || propName == "viewBox"){
+            svgElem.setAttribute("viewBox", propValue);
         }
     else if (propName == "preserveaspectratio"
         || propName == "preserveAspectRatio"){
-         svgElem.setAttribute("preserveAspectRatio", propValue);
+            svgElem.setAttribute("preserveAspectRatio", propValue);
+        }
+    else if (propName == "width"
+        || propName == "height"){
+            $(editedElem).css(propName,propValue);
         }
     else {
         $(editedElem).attr(propName,propValue);
