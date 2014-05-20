@@ -1,16 +1,16 @@
 // Include sources
 // -------------------------------
 
-$( "#svg-filters" ).load( "/assets/img/svg/filters.svg", function() {
-});
-$( "#svg-fills" ).load( "/assets/img/svg/fills.svg", function() {
-});
-$( "#svg-masks" ).load( "/assets/img/svg/masks.svg", function() {
-});
-$( "#svg-symbols" ).load( "/assets/img/svg/symbols.svg", function() {
-});
-$( "#svg-images" ).load( "/assets/img/svg/svg-lib.svg", function() {
-});
+// $( "#svg-filters" ).load( "/assets/img/svg/filters.svg", function() {
+// });
+// $( "#svg-fills" ).load( "/assets/img/svg/fills.svg", function() {
+// });
+// $( "#svg-masks" ).load( "/assets/img/svg/masks.svg", function() {
+// });
+// $( "#svg-symbols" ).load( "/assets/img/svg/symbols.svg", function() {
+// });
+// $( "#svg-images" ).load( "/assets/img/svg/svg-lib.svg", function() {
+// });
 
 
 var curSlideClass = ".slide.active";
@@ -77,6 +77,15 @@ $(".demo--live").each ( function(){
         removeBackground(this);
     });
 
+});
+
+
+// Resize Objects
+// -------------------------------
+
+$(".demo__slider").mousemove(function(){
+    var targetElem = $(this).attr("data-target");
+    $(targetElem).css("width",$(this).val() + "%");
 });
 
 // Switch Demos
