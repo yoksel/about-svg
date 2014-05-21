@@ -71,6 +71,10 @@
   font-size: 3em;
 }
 
+BODY {
+  border: 1px solid red;
+}
+
 /* SVG
 ------------------------- */
 svg {
