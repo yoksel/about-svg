@@ -73,6 +73,7 @@
 
 BODY {
   border: 1px solid red;
+  overflow: hidden;
 }
 
 /* SVG
