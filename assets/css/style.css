@@ -71,11 +71,6 @@
   font-size: 3em;
 }
 
-BODY {
-  border: 1px solid red;
-  overflow: hidden;
-}
-
 /* SVG
 ------------------------- */
 svg {
@@ -127,7 +122,6 @@ use {
   width: auto;
   height: auto;
   padding: 60px 80px;
-  /*border: 2px solid red;*/
 }
 .slide:after {
   right: 1em;
@@ -2022,3 +2016,5 @@ PRE:before {
   font-style: italic;
   color: tomato;
 }
+
+/*@import '_print';*/
