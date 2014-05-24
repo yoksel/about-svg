@@ -28,7 +28,6 @@ function setAttr(propName, propValue, editedElem) {
             var svgElem = document.querySelector(".active svg");
     }
 
-    console.log(propName);
     if (propName == "viewbox"
         || propName == "viewBox"){
             svgElem.setAttribute("viewBox", propValue);
@@ -162,7 +161,7 @@ function editProperty(elem, editedCode) {
     if (!codeVal) return;
 
     if ($(editedCode).val().length > maxLine){
-        console.log("too long");
+        // console.log("too long");
         $(editedCode).addClass("code--two-lines");
     }
 
