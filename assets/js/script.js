@@ -1,18 +1,3 @@
-// Include sources
-// -------------------------------
-
-// $( "#svg-filters" ).load( "/assets/img/svg/filters.svg", function() {
-// });
-// $( "#svg-fills" ).load( "/assets/img/svg/fills.svg", function() {
-// });
-// $( "#svg-masks" ).load( "/assets/img/svg/masks.svg", function() {
-// });
-// $( "#svg-symbols" ).load( "/assets/img/svg/symbols.svg", function() {
-// });
-// $( "#svg-images" ).load( "/assets/img/svg/svg-lib.svg", function() {
-// });
-
-
 var curSlideClass = ".slide.active";
 
 // Show Shapes
@@ -37,17 +22,23 @@ jQuery.fn.redraw = function() {
 function setAttr(propName, propValue, editedElem) {
 
     if (propName == "viewbox"
+        || propName == "viewBox"
         || propName == "preserveaspectratio"
         || propName == "preserveAspectRatio"){
-       var svgElem = document.querySelector(".active svg");
+            var svgElem = document.querySelector(".active svg");
     }
 
-    if (propName == "viewbox"){
-        svgElem.setAttribute("viewBox", propValue);
+    if (propName == "viewbox"
+        || propName == "viewBox"){
+            svgElem.setAttribute("viewBox", propValue);
         }
     else if (propName == "preserveaspectratio"
         || propName == "preserveAspectRatio"){
-         svgElem.setAttribute("preserveAspectRatio", propValue);
+            svgElem.setAttribute("preserveAspectRatio", propValue);
+        }
+    else if (propName == "width"
+        || propName == "height"){
+            $(editedElem).css(propName,propValue);
         }
     else {
         $(editedElem).attr(propName,propValue);
@@ -170,7 +161,7 @@ function editProperty(elem, editedCode) {
     if (!codeVal) return;
 
     if ($(editedCode).val().length > maxLine){
-        console.log("too long");
+        // console.log("too long");
         $(editedCode).addClass("code--two-lines");
     }
 

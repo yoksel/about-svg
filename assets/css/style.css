@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Ubuntu Condensed';
   font-style: normal;
@@ -122,7 +123,6 @@ use {
   width: auto;
   height: auto;
   padding: 60px 80px;
-  /*border: 2px solid red;*/
 }
 .slide:after {
   right: 1em;
@@ -323,6 +323,13 @@ PRE:before {
   float: right;
 }
 
+.photo {
+  float: left;
+  width: 300px;
+  height: 300px;
+  margin-right: 2.5em;
+}
+
 /*16px*/
 .wrapper--icons-16-64 {
   margin: -1em 0 0;
@@ -449,9 +456,6 @@ PRE:before {
 
 /* Highlight
 ------------------------- */
-.demo__content {
-  /*border: 3px solid orange;*/
-}
 .demo__content:before {
   content: "";
   display: block;
@@ -491,28 +495,14 @@ PRE:before {
   width: 850px;
   margin: auto;
 }
-
-:target .resize-cat {
-  border: 1px solid #CCC;
+.demo--cat .resize-cat {
+  border: 1px solid #333;
   height: 500px;
   margin-top: 1em;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
-@-webkit-keyframes cat-width {
-  100% {
-    width: 400px;
-    /*height: 400px;*/
-  }
-}
-
-@keyframes cat-width {
-  100% {
-    width: 400px;
-    /*height: 400px;*/
-  }
-}
 /* Demo Clowns Car
 ------------------------- */
 .demo--clownscar {
@@ -521,35 +511,15 @@ PRE:before {
 }
 .demo--clownscar .demo__view {
   width: 850px;
-  height: 550px;
+  height: 500px;
   margin: 0 auto;
 }
 
 .full :target .resize-clownscar {
-  border: 1px solid transparent;
-  -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -ms-perspective: 1000;
-  perspective: 1000;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  /*animation: 15s clownscar-width infinite linear alternate;*/
+  margin-top: 1em;
+  border: 1px solid #333;
 }
 
-@-webkit-keyframes clownscar-width {
-  100% {
-    width: 500px;
-  }
-}
-
-@keyframes clownscar-width {
-  100% {
-    width: 500px;
-  }
-}
 /* Demo Filling
 ------------------------- */
 .slide--fillingdemo PRE,
@@ -580,7 +550,6 @@ PRE:before {
 .slide--fillingdemo svg, .slide--fillingdemo object {
   width: 100%;
   height: 100%;
-  /*border: 1px solid green;*/
 }
 .slide--fillingdemo .demo__content {
   position: relative;
@@ -838,6 +807,10 @@ PRE:before {
   background-position: 0 .2em;
 }
 
+.demo--textpath text {
+  font-size: 1.2em;
+}
+
 /* Demo Sizes
 ------------------------- */
 .demo--sizes .demo__view {
@@ -921,6 +894,9 @@ PRE:before {
 .demo--dasharray LI {
   margin-bottom: 25px;
 }
+.demo--dasharray use {
+  fill: none;
+}
 
 .demo--dashoffset .demo__content {
   position: absolute;
@@ -973,7 +949,7 @@ PRE:before {
 
 .demo--stroke-dasharr-anim path {
   fill: none;
-  stroke-width: 1;
+  stroke-width: 2;
   stroke-dasharray: 550;
   stroke-dashoffset: 570;
 }
@@ -2047,3 +2023,5 @@ PRE:before {
   font-style: italic;
   color: tomato;
 }
+
+/*@import '_print';*/

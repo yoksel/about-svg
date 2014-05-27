@@ -27,6 +27,7 @@ BODY {
   }
   :target {
     overflow: hidden;
+    padding: 1em;
     }
 
 A {
@@ -118,6 +119,7 @@ OBJECT {
     }
   :target .wrapper {
     padding: .7em 2em;
+    border: 0;
     }
 
 @media screen and (max-width: 900px) {
