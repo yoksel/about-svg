@@ -85,7 +85,7 @@
     </mask>
     <!--  -->
     <mask id="mask-lum-pattern" >
-      <image xlink:href="./assets/img/parts/grayscale-scales-invert.png" width="200" height="300" />
+      <image xlink:href="./assets/img/parts/grayscale-hands.png" width="200" height="300" />
     </mask>
     <!-- Patterns -->
     <pattern id="pattern" patternunits="userSpaceOnUse" width="199" height="300" viewbox="0 0 199 300">
