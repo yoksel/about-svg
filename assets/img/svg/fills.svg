@@ -1,6 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-  width="1024px"
-  height="640px">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024px" height="640px">
 
  <linearGradient id="gr-rainbow-stripes"
     x1="0" y1="0" x2="200" y2="0%"
@@ -187,7 +185,7 @@
 
   <pattern id="pt-wood" width="300" height="300"
              patternUnits="userSpaceOnUse">
-    <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300">
+    <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300"/>
   </pattern>
 
   <pattern id="pt-mosaic-colored" width="200" height="200"
