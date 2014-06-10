@@ -1653,6 +1653,37 @@ PRE:before {
   content: "\68";
 }
 
+.wrapper--icons-colored {
+  position: absolute;
+  top: 0;
+  bottom: 80px;
+  right: 0;
+  left: 0;
+  height: 22em;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+.wrapper--icons-colored .icon {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  width: 10em;
+  height: 10em;
+  margin: 0 1em 1em;
+  text-indent: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+.wrapper--icons-colored .icon use {
+  -webkit-transform: scale(0.85) translate(0.2em, 0.2em);
+  -ms-transform: scale(0.85) translate(0.2em, 0.2em);
+  transform: scale(0.85) translate(0.2em, 0.2em);
+}
+.wrapper--icons-colored .icon:before {
+  content: none;
+}
+
 .wrapper--icons-stroke,
 .wrapper--icons-filters {
   position: absolute;
