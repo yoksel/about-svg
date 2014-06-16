@@ -1883,7 +1883,8 @@ PRE:before {
 }
 
 .list--support-stacks DT {
-  width: 332px;
+  width: 325px;
+  vertical-align: top;
 }
 
 .list--cssmasks DL {
