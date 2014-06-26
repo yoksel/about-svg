@@ -469,6 +469,21 @@
     </mask>
 
     <!--  -->
+
+    <symbol id="s-mask-circles">
+        <rect y="0" width="100%" height="100%" fill="black" />
+        <g stroke="gray" stroke-width="12" fill="white">
+            <circle cx="33%" cy="30%" r="20%"/>
+            <circle cx="52%" cy="62%" r="32%"/>
+        </g>
+    </symbol>
+
+    <mask id="mask-circles" maskunits="userSpaceOnUse" maskcontentunits="userSpaceOnUse">
+      <use xlink:href="#s-mask-circles" />
+    </mask>
+
+    <!--  -->
+
     <mask id="mask-soft" maskunits="objectBoundingBox" maskcontentunits="objectBoundingBox">
       <rect y="0" width="1" height="1" fill="url(#mask-radial-gradient)" />
     </mask>
@@ -1835,20 +1850,11 @@
       </svg>
       <span class="sign">+</span>
       <svg width="200" height="300" class="svg--ovh">
-        <rect y="0" width="100%" height="100%" fill="url(#mask-gradient)" />
-        <circle cx="50%" cy="50%" r="42%" fill="black" />
-        <circle cx="0" cy="50%" r="32%" fill="black" />
-        <circle cx="100%" cy="50%" r="32%" fill="black" />
-        <circle cx="0" cy="50%" r="30%" fill="gray" />
-        <circle cx="50%" cy="50%" r="40%" fill="gray" />
-        <circle cx="100%" cy="50%" r="30%" fill="gray" />
-        <circle cx="0" cy="50%" r="25%" fill="white" />
-        <circle cx="50%" cy="50%" r="35%" fill="white" />
-        <circle cx="100%" cy="50%" r="25%" fill="white" />
+        <use xlink:href="#s-mask-circles" />
       </svg>
       <span class="sign">=</span>
       <svg width="200" height="300">
-        <g mask="url(#mask)">
+        <g mask="url(#mask-circles)">
           <use xlink:href="#s-flower-m"/>
         </g>
       </svg>
@@ -1858,11 +1864,11 @@
   <section class="slide"><div>
     <pre class="pre--svg"><code>&lt;mask id="mask" maskunits="userSpaceOnUse"</code>
     <code>    maskcontentunits="userSpaceOnUse"></code>
-    <code>    &lt;rect y="0" width="100%" height="100%"</code>
-    <code>        fill="url(#mask-gradient)" /></code>
-    <code>    &lt;circle cx="50%" cy="50%" r="42%" fill="black" /></code>
-    <code>    &lt;circle cx="0" cy="50%" r="32%" fill="black" /></code>
-    <code>    ...</code>
+    <code>    &lt;rect y="0" width="100%" height="100%" fill="black" /></code>
+    <code>    &lt;g stroke="gray" stroke-width="12" fill="white"></code>
+    <code>        &lt;circle cx="33%" cy="30%" r="20%" /></code>
+     <code>       &lt;circle cx="52%" cy="62%" r="32%" /></code>
+     <code>    &lt;/g></code>
     <code>&lt;/mask></code>
 </pre>
   </div></section>
