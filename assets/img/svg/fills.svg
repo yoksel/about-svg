@@ -52,7 +52,7 @@
   </linearGradient>
 
   <linearGradient id="gr-gray-transp" x1="0" y1="0" x2="0" y2="100%">
-      <stop stop-color="black" stop-opacity=".5" class="color-1"/>
+      <stop stop-color="black" stop-opacity=".7" offset="0" class="color-1"/>
       <stop stop-color="black" stop-opacity="0" offset="90" class="color-2"/>
   </linearGradient>
 
@@ -67,6 +67,13 @@
 
   <radialGradient id="gr-radial-lights"
       cx="50%" cy="50%" r="70%">
+      <stop stop-color="white" offset="5%"
+        stop-opacity="1"/>
+      <stop stop-color="white" offset="100%" stop-opacity="0"/>
+  </radialGradient>
+
+  <radialGradient id="gr-radial-lights-small"
+      cx="50%" cy="50%" r="50%">
       <stop stop-color="white" offset="5%"
         stop-opacity="1"/>
       <stop stop-color="white" offset="100%" stop-opacity="0"/>
@@ -188,6 +195,22 @@
     <image xlink:href="./assets/img/parts/wood.jpg" width="300" height="300"/>
   </pattern>
 
+  <pattern id="pt-grass" width="300" height="300"
+             patternUnits="userSpaceOnUse">
+    <image xlink:href="./assets/img/parts/grass.jpg" width="300" height="300"/>
+  </pattern>
+
+  <pattern id="pt-water" viewBox="0 0 256 256"
+         width="256" height="256" patternUnits="userSpaceOnUse">
+      <image xlink:href="http://img-fotki.yandex.ru/get/9931/5091629.a0/0_835bb_35485e4a_XL" width="256" height="256"/>
+  </pattern>
+
+  <pattern id="pt-fire" viewBox="30 100 186 200"
+       width="216" height="200" patternUnits="userSpaceOnUse"
+           x="-60" y="-100">
+    <image xlink:href="http://img-fotki.yandex.ru/get/9742/5091629.a0/0_835bc_b77f8d28_orig" width="256" height="300"/>
+  </pattern>
+
   <pattern id="pt-mosaic-colored" width="200" height="200"
     viewbox="0 0 200 200"
     patternUnits="userSpaceOnUse">
@@ -226,7 +249,7 @@
 
   <!--  -->
 
-  <pattern id="pt-text" patternunits="userSpaceOnUse" width="350" height="112">
+  <pattern id="pt-text" patternunits="userSpaceOnUse" width="480" height="112" y="5">
     <text x="0" y="0">
       <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies.
       </tspan>

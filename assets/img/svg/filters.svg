@@ -6,10 +6,23 @@
         </filter>
         <!--        -->
         <filter id="fl-shadow" filterUnits="userSpaceOnUse" x="-7" y="0"
-              width="900" height="900">
+              width="1000" height="900">
         <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
         <feOffset in="blur" dx="0" dy="4" result="offsetBlr" />
         <feFlood flood-color="rgba(0,0,0,.7)"/>
+        <feComposite operator="in" in2="offsetBlr" result="colBlur"/>
+        <feMerge>
+          <feMergeNode in="colBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <!--        -->
+
+      <filter id="fl-shadow-win" filterUnits="userSpaceOnUse" x="-7" y="0"
+              width="1000" height="900">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+        <feOffset in="blur" dx="0" dy="0" result="offsetBlr" />
+        <feFlood flood-color="orangered"/>
         <feComposite operator="in" in2="offsetBlr" result="colBlur"/>
         <feMerge>
           <feMergeNode in="colBlur"/>
