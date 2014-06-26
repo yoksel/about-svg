@@ -827,7 +827,6 @@ PRE:before {
   height: 100%;
   overflow: hidden;
   border: 3px solid #777;
-  /*$color-sizes-color-1*/
 }
 
 .gr--star-viewbox .bg {
@@ -839,7 +838,6 @@ PRE:before {
   fill: #4ad9d9;
   stroke: #36b1bf;
   stroke-width: 5;
-  /*stroke-dasharray: 10;*/
 }
 .gr--star-viewbox circle {
   fill: #e9f1df;
@@ -1519,7 +1517,32 @@ PRE:before {
   background-position: 0 .2em;
 }
 .demo--tit-desc .demo__code {
-  height: 224.532px;
+  height: 194.5944px;
+}
+
+.demo--image .demo__code,
+.demo--text .demo__code {
+  height: 164.6568px;
+}
+
+.demo--image .demo__content {
+  position: relative;
+}
+.demo--image .demo__content:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent)), -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(59.8752px, palegoldenrod), color-stop(89.8128px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), -webkit-linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px), linear-gradient(transparent 59.8752px, palegoldenrod 59.8752px, palegoldenrod 89.8128px, transparent 89.8128px);
+  background-position: 0 .2em;
+}
+
+.demo--text .demo__content {
+  position: relative;
+}
+.demo--text .demo__content:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(29.9376px, palegoldenrod), color-stop(59.8752px, palegoldenrod), to(transparent));
+  background: -webkit-linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background: linear-gradient(transparent 29.9376px, palegoldenrod 29.9376px, palegoldenrod 59.8752px, transparent 59.8752px);
+  background-position: 0 .2em;
 }
 
 .demo--tit-desc-elem .demo__content {
