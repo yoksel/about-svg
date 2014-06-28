@@ -63,6 +63,9 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.slide .free-fly--small {
+  font-size: 85px;
+}
 .slide .free-fly .tooltip {
   position: absolute;
   left: 0;
@@ -979,7 +982,7 @@ PRE:before {
 }
 
 .t--anim {
-  stroke-width: 5;
+  stroke-width: 7;
   stroke-opacity: .5;
 }
 
