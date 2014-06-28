@@ -2601,11 +2601,11 @@ svg > .dev--bounds {
   content: "Mobile";
 }
 
-.opera-13 {
+.opera-15 {
   background-position: 0 -320px;
 }
-.opera-13:after {
-  content: "13+";
+.opera-15:after {
+  content: "15+";
 }
 
 .safari {
