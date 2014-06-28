@@ -95,18 +95,10 @@
       <rect y="0" width="1" height="1" fill="url(#mask-radial-gradient)" />
     </mask>
     <!--  -->
-    <mask id="mask-lum" maskunits="objectBoundingBox" x="0" y="0">
-      <image xlink:href="./assets/img/parts/flower-m.jpg" width="200" height="300" />
-    </mask>
-    <!--  -->
     <mask id="mask-lum-pattern" >
       <image xlink:href="./assets/img/parts/grayscale-hands.png" width="200" height="300" />
     </mask>
     <!-- Patterns -->
-    <pattern id="pattern" patternunits="userSpaceOnUse" width="199" height="300" viewbox="0 0 199 300">
-      <image xlink:href="./assets/img/parts/flower-m.jpg" width="199" height="300" />
-    </pattern>
-    <!--  -->
     <pattern id="pattern-text" patternunits="userSpaceOnUse" width="450" height="95">
       <text x="0" y="0">
         <tspan x="0" y="1em">Nam tristique vestibulum nulla nec accumsan. Nullam commodo eget dolor et ultricies.

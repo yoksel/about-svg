@@ -202,13 +202,13 @@
 
   <pattern id="pt-water" viewBox="0 0 256 256"
          width="256" height="256" patternUnits="userSpaceOnUse">
-      <image xlink:href="http://img-fotki.yandex.ru/get/9931/5091629.a0/0_835bb_35485e4a_XL" width="256" height="256"/>
+      <image xlink:href="./assets/img/parts/water.gif" width="256" height="256"/>
   </pattern>
 
   <pattern id="pt-fire" viewBox="30 100 186 200"
        width="216" height="200" patternUnits="userSpaceOnUse"
            x="-60" y="-100">
-    <image xlink:href="http://img-fotki.yandex.ru/get/9742/5091629.a0/0_835bc_b77f8d28_orig" width="256" height="300"/>
+    <image xlink:href="./assets/img/parts/fire.gif" width="256" height="300"/>
   </pattern>
 
   <pattern id="pt-mosaic-colored" width="200" height="200"
